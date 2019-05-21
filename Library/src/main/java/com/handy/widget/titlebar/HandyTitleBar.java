@@ -1,4 +1,4 @@
-package com.handy.titlebar;
+package com.handy.widget.titlebar;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -23,9 +23,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.handy.titlebar.entity.Action;
-import com.handy.titlebar.utils.HandyTitleBarUtils;
-import com.handy.titlebar.widget.MarqueeTextView;
+import com.handy.widget.titlebar.entity.Action;
+import com.handy.widget.titlebar.utils.HandyTitleBarUtils;
+import com.handy.widget.titlebar.widget.MarqueeTextView;
 
 import java.lang.reflect.Field;
 

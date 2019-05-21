@@ -1,11 +1,11 @@
-package com.handy.titlebar.app;
+package com.handy.widget.titlebar.app;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-import com.handy.titlebar.HandyTitleBar;
-import com.handy.titlebar.entity.Action;
+import com.handy.widget.titlebar.HandyTitleBar;
+import com.handy.widget.titlebar.entity.Action;
 
 public class TestActivity extends AppCompatActivity {
 

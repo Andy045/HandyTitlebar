@@ -1,4 +1,4 @@
-package com.handy.titlebar.entity;
+package com.handy.widget.titlebar.entity;
 
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.handy.titlebar.utils.HandyTitleBarUtils;
+import com.handy.widget.titlebar.utils.HandyTitleBarUtils;
 
 /**
  * file name

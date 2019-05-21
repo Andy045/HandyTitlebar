@@ -1,4 +1,4 @@
-package com.handy.titlebar.widget;
+package com.handy.widget.titlebar.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,4 +1,4 @@
-package com.handy.titlebar.utils;
+package com.handy.widget.titlebar.utils;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
