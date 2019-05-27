@@ -1,3 +1,34 @@
+<h1>可扩展标题栏控件</h1>
+
+# 最新版本
+
+[![](https://jitpack.io/v/Handy045/HandyTitleBar.svg)](https://jitpack.io/#Handy045/HandyTitleBar)
+
+# Javadoc文档查看
+
+[最新版本-Javadoc文档](https://javadoc.jitpack.io/com/github/Handy045/HandyTitleBar/latest/javadoc/)
+
+# 项目引用
+
+## Step 1.添加maven地址到Project的build.gradle配置文件中
+
+    ```
+    allprojects {
+    	repositories {
+    		...
+    		maven { url 'https://jitpack.io' }
+    	}
+    }
+    ```
+
+## Step 2.添加api引用到Module的build.gradle配置文件中
+
+    ```
+    dependencies {
+    	implementation 'com.github.Handy045:HandyTitleBar:最新版本号'
+    }
+    ```
+
 # 自定义标题栏控件
 
 [使用说明](https://handy045.com/2018/05/22/Android/Handy/HandyTitleBar/)
@@ -105,34 +136,3 @@ HandyTitleBar的布局元素：
 # 部分效果展示
 
 ![](https://github.com/Handy045/HandyTitleBar/blob/master/document/2018-05-23_22-18-55.png?raw=true)
-
-# 使用方式
-
-## Github地址
-
-https://github.com/Handy045/HandyTitleBar
-
-## Gradle引用
-
-1. 在根目录的build.gradle文件中，找到allProjects属性并增加maven仓库地址。
-
-    ```
-    allprojects {
-    	repositories {
-    		...
-    		maven { url 'https://jitpack.io' }
-    	}
-    }
-    ```
-
-2. 在使用Module的build.gradle文件中，添加引用语句。
-
-    ```
-    dependencies {
-    	implementation 'com.github.Handy045:HandyTitleBar:最新版本号'
-    }
-    ```
-
-## 最新版本号
-
-[![](https://jitpack.io/v/Handy045/HandyTitleBar.svg)](https://jitpack.io/#Handy045/HandyTitleBar)
