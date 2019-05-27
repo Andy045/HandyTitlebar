@@ -12,22 +12,31 @@
 
 ## Step 1.添加maven地址到Project的build.gradle配置文件中
 
-    ```
-    allprojects {
-    	repositories {
-    		...
-    		maven { url 'https://jitpack.io' }
-    	}
-    }
-    ```
+```javascript
+buildscript {
+  repositories {
+    ......
+    maven { url 'https://jitpack.io' }
+  }
+  ......
+}
+
+allprojects {
+  repositories {
+    ......
+    maven { url 'https://jitpack.io' }
+  }
+}
+```
 
 ## Step 2.添加api引用到Module的build.gradle配置文件中
 
-    ```
-    dependencies {
-    	implementation 'com.github.Handy045:HandyTitleBar:最新版本号'
-    }
-    ```
+```javascript
+dependencies {
+  ...
+  api 'com.github.Handy045:HandyTitleBar:最新版本号'
+}
+```
 
 # 自定义标题栏控件
 
