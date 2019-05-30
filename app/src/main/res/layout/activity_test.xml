@@ -10,6 +10,7 @@
         android:id="@+id/titlebarNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:handy_isShowCustomStatusBar="true"
         android:layout_alignParentTop="true"
         app:handy_mainText="这个是主标题"
         app:handy_subText="这个是副标题" />
