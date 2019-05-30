@@ -701,7 +701,11 @@ public class HandyTitleBar extends ViewGroup {
             } else if (context instanceof Activity) {
                 return (Activity) context;
             } else {
-                context = ((ContextWrapper) context).getBaseContext();
+                try {
+                    context = ((ContextWrapper) context).getBaseContext();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         return null;
