@@ -113,40 +113,40 @@ public class HandyTitleBar extends ViewGroup {
 
         isShowCustomStatusBar = typedArray.getBoolean(R.styleable.HandyTitleBarStyleable_handy_isShowCustomStatusBar, false);
         statusBarHeight = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_statusBarHeight, isShowCustomStatusBar ? getStatusBarHeight(context) : 0);
-        statusBarBackgroundColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_statusBarBackgroundColor, 0XFF0091EA);
+        statusBarBackgroundColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_statusBarBackgroundColor, getResources().getColor(R.color.handyTitleBar_statusBarBackgroundColor));
 
         topLineHeight = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_topLineHeight, 0);
-        topLineColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_topLineColor, 0xFF9E9E9E);
+        topLineColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_topLineColor, getResources().getColor(R.color.handyTitleBar_topLineColor));
 
         titleBarPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarPadding, 0);
         titleBarPaddingTop = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingTop, 0);
         titleBarPaddingLeft = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingLeft, 0);
         titleBarPaddingRight = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingRight, 0);
         titleBarPaddingBottom = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingBottom, 0);
-        titleBarHeight = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarHeight, HandyTitleBarUtils.dpTopx(48));
+        titleBarHeight = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_titleBarHeight, getResources().getDimension(R.dimen.handyTitleBar_titleBarHeight));
         titleBarBackground = typedArray.getDrawable(R.styleable.HandyTitleBarStyleable_handy_titleBarBackground);
-        titleBarBackground = titleBarBackground != null ? titleBarBackground : new ColorDrawable(0xFF0091EA);
+        titleBarBackground = titleBarBackground != null ? titleBarBackground : new ColorDrawable(getResources().getColor(R.color.handyTitleBar_titleBarBackground));
 
-        contentLayoutPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_contentLayoutPadding, HandyTitleBarUtils.dpTopx(8));
+        contentLayoutPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_contentLayoutPadding, getResources().getDimension(R.dimen.handyTitleBar_contentLayoutPadding));
         mainText = typedArray.getString(R.styleable.HandyTitleBarStyleable_handy_mainText);
-        mainTextSize = typedArray.getDimensionPixelSize(R.styleable.HandyTitleBarStyleable_handy_mainTextSize, HandyTitleBarUtils.spTopx(17));
-        mainTextColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_mainTextColor, 0XFFFFFFFF);
-        mainTextBackgroundColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_mainTextBackgroundColor, 0X00000000);
+        mainTextSize = typedArray.getDimensionPixelSize(R.styleable.HandyTitleBarStyleable_handy_mainTextSize, getResources().getDimensionPixelSize(R.dimen.handyTitleBar_mainTextSize));
+        mainTextColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_mainTextColor, getResources().getColor(R.color.handyTitleBar_mainTextColor));
+        mainTextBackgroundColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_mainTextBackgroundColor, getResources().getColor(R.color.handyTitleBar_mainTextBackgroundColor));
 
         subText = typedArray.getString(R.styleable.HandyTitleBarStyleable_handy_subText);
-        subTextSize = typedArray.getDimensionPixelSize(R.styleable.HandyTitleBarStyleable_handy_subTextSize, HandyTitleBarUtils.spTopx(13));
-        subTextColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_subTextColor, 0XFFFFFFFF);
-        subTextBackgroundColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_subTextBackgroundColor, 0X00000000);
+        subTextSize = typedArray.getDimensionPixelSize(R.styleable.HandyTitleBarStyleable_handy_subTextSize, getResources().getDimensionPixelSize(R.dimen.handyTitleBar_subTextSize));
+        subTextColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_subTextColor, getResources().getColor(R.color.handyTitleBar_subTextColor));
+        subTextBackgroundColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_subTextBackgroundColor, getResources().getColor(R.color.handyTitleBar_subTextBackgroundColor));
 
         bottomLineHeight = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_bottomLineHeight, 0);
-        bottomLineColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_bottomLineColor, 0xFF9E9E9E);
+        bottomLineColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_bottomLineColor, getResources().getColor(R.color.handyTitleBar_bottomLineColor));
 
-        actionViewPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionViewPadding, HandyTitleBarUtils.dpTopx(8));
-        actionLayoutPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionLayoutPadding, HandyTitleBarUtils.dpTopx(8));
-        actionTextMarginLeft = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionTextMarginLeft, HandyTitleBarUtils.dpTopx(6));
-        actionTextSize = typedArray.getDimensionPixelSize(R.styleable.HandyTitleBarStyleable_handy_actionTextSize, HandyTitleBarUtils.spTopx(13));
-        actionTextColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_actionTextColor, 0XFFFFFFFF);
-        actionImageSize = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionImageSize, HandyTitleBarUtils.dpTopx(16));
+        actionViewPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionViewPadding, getResources().getDimension(R.dimen.handyTitleBar_actionViewPadding));
+        actionLayoutPadding = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionLayoutPadding, getResources().getDimension(R.dimen.handyTitleBar_actionLayoutPadding));
+        actionTextMarginLeft = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionTextMarginLeft, getResources().getDimension(R.dimen.handyTitleBar_actionTextMarginLeft));
+        actionTextSize = typedArray.getDimensionPixelSize(R.styleable.HandyTitleBarStyleable_handy_actionTextSize, getResources().getDimensionPixelSize(R.dimen.handyTitleBar_actionTextSize));
+        actionTextColor = typedArray.getColor(R.styleable.HandyTitleBarStyleable_handy_actionTextColor, getResources().getColor(R.color.handyTitleBar_actionTextColor));
+        actionImageSize = (int) typedArray.getDimension(R.styleable.HandyTitleBarStyleable_handy_actionImageSize, getResources().getDimension(R.dimen.handyTitleBar_actionImageSize));
 
         typedArray.recycle();
         initView(context);
