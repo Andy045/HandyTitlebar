@@ -10,18 +10,9 @@
         android:id="@+id/titlebarNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:handy_isShowCustomStatusBar="true"
         android:layout_alignParentTop="true"
+        app:handy_isShowCustomStatusBar="true"
         app:handy_mainText="这个是主标题"
         app:handy_subText="这个是副标题" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        android:textColor="#000000"
-        android:textSize="17sp" />
 
 </RelativeLayout>
