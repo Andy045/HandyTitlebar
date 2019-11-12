@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="handyTitleBar_titleBarHeight">48dp</dimen>
+    <dimen name="handyTitleBar_contentLayoutPadding">8dp</dimen>
+    <dimen name="handyTitleBar_mainTextSize">17sp</dimen>
+    <dimen name="handyTitleBar_subTextSize">13sp</dimen>
+    <dimen name="handyTitleBar_actionViewPadding">8dp</dimen>
+    <dimen name="handyTitleBar_actionLayoutPadding">8dp</dimen>
+    <dimen name="handyTitleBar_actionTextMarginLeft">6dp</dimen>
+    <dimen name="handyTitleBar_actionTextSize">13sp</dimen>
+    <dimen name="handyTitleBar_actionImageSize">16dp</dimen>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="handyTitleBar_statusBarBackgroundColor">#FF0091EA</color>
+    <color name="handyTitleBar_topLineColor">#FF9E9E9E</color>
+    <color name="handyTitleBar_titleBarBackground">#FF0091EA</color>
+    <color name="handyTitleBar_mainTextColor">#FFFFFFFF</color>
+    <color name="handyTitleBar_mainTextBackgroundColor">#00000000</color>
+    <color name="handyTitleBar_subTextColor">#FFFFFFFF</color>
+    <color name="handyTitleBar_subTextBackgroundColor">#00000000</color>
+    <color name="handyTitleBar_bottomLineColor">#FF9E9E9E</color>
+    <color name="handyTitleBar_actionTextColor">#FFFFFFFF</color>
+</resources>
