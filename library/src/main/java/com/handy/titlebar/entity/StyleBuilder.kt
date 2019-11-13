@@ -17,12 +17,13 @@ import com.handy.titlebar.R
  * @author LiuJie https://github.com/Handy045
  * @date Created in 2019-11-13 09:22
  */
-class StyleBuilder constructor(context: Context, attrs: AttributeSet, resources: Resources) {
+class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources: Resources) {
 
     //============================================================
     //  状态栏
     //============================================================
 
+    var systemStatusBarHeight: Float = 0f
     var statusBarHeight: Float = 0f
     @ColorInt
     var statusBarBackgroundColor: Int = 0
@@ -90,9 +91,10 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet, resources:
             R.styleable.HandyTitleBarStyleable_handy_isShowCustomStatusBar,
             false
         )
+        this.systemStatusBarHeight = getStatusBarHeight(context)
         this.statusBarHeight = typedArray.getDimension(
             R.styleable.HandyTitleBarStyleable_handy_statusBarHeight,
-            if (isShowCustomStatusBar) getStatusBarHeight(context) else 0f
+            if (isShowCustomStatusBar) systemStatusBarHeight else 0f
         )
         this.statusBarBackgroundColor = typedArray.getColor(
             R.styleable.HandyTitleBarStyleable_handy_statusBarBackgroundColor,
