@@ -6,12 +6,12 @@
     android:background="#eeeeee"
     android:orientation="vertical">
 
-    <com.handy.titlebar.HandyTitleBar
+    <com.handy.titlebar.HandyTitlebar
         android:id="@+id/titlebarNew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:handy_contentLayoutOrientation="horizontal"
-        app:handy_isShowCustomStatusBar="true"
+        app:handy_isShowCustomStatusbar="true"
         app:handy_mainText="主标题"
         app:handy_subText="副标题" />
 

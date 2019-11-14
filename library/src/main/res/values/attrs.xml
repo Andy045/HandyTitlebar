@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="HandyTitleBarStyleable">
+    <declare-styleable name="HandyTitlebarStyleable">
         <!-- 状态栏 -->
-        <attr name="handy_isShowCustomStatusBar" format="boolean" />
-        <attr name="handy_statusBarHeight" format="dimension" />
-        <attr name="handy_statusBarBackgroundColor" format="color" />
+        <attr name="handy_isShowCustomStatusbar" format="boolean" />
+        <attr name="handy_statusbarHeight" format="dimension" />
+        <attr name="handy_statusbarBackgroundColor" format="color" />
 
         <!-- 顶部分割线 -->
         <attr name="handy_topLineHeight" format="dimension" />
         <attr name="handy_topLineColor" format="color" />
 
         <!-- 标题栏 -->
-        <attr name="handy_titleBarMargin" format="dimension" />
-        <attr name="handy_titleBarMarginTop" format="dimension" />
-        <attr name="handy_titleBarMarginLeft" format="dimension" />
-        <attr name="handy_titleBarMarginRight" format="dimension" />
-        <attr name="handy_titleBarMarginBottom" format="dimension" />
-        <attr name="handy_titleBarHeight" format="dimension" />
-        <attr name="handy_titleBarBackground" format="reference|color" />
+        <attr name="handy_titlebarMargin" format="dimension" />
+        <attr name="handy_titlebarMarginTop" format="dimension" />
+        <attr name="handy_titlebarMarginLeft" format="dimension" />
+        <attr name="handy_titlebarMarginRight" format="dimension" />
+        <attr name="handy_titlebarMarginBottom" format="dimension" />
+        <attr name="handy_titlebarHeight" format="dimension" />
+        <attr name="handy_titlebarBackground" format="reference|color" />
 
         <!-- 标题容器 -->
         <attr name="handy_contentLayoutPadding" format="dimension" />

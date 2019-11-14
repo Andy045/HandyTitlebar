@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat
  * @date Created in 2019/3/29 10:57 AM
  * @modified By liujie
  */
-class HandyTitleBarUtils private constructor() {
+class HandyTitlebarUtils private constructor() {
     companion object {
         /**
          * dp转px

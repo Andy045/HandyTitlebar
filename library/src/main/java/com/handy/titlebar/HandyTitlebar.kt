@@ -19,26 +19,26 @@ import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import com.handy.titlebar.entity.StyleBuilder
-import com.handy.titlebar.utils.HandyTitleBarUtils
+import com.handy.titlebar.utils.HandyTitlebarUtils
 import com.handy.titlebar.widget.MarqueeTextView
 
 
 /**
- * @title: HandyTitleBar
+ * @title: HandyTitlebar
  * @projectName HandyTitlebar
  * @description: 支持沉浸式，可以在xml布局中通过自定义属性配置标题栏样式
  * @author LiuJie https://github.com/Handy045
  * @date Created in 2019-11-12 15:59
  */
 @SuppressLint("CustomViewStyleable")
-class HandyTitleBar @JvmOverloads constructor(
+class HandyTitlebar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ViewGroup(context, attrs, defStyleAttr) {
     //============================================================
     //  私有配置
     //============================================================
 
-    private var displayWidth: Int = HandyTitleBarUtils.getScreenWidth(context)
+    private var displayWidth: Int = HandyTitlebarUtils.getScreenWidth(context)
 
     private var parentWidth: Int = 0
     private var parentHeight: Int = 0
@@ -69,8 +69,8 @@ class HandyTitleBar @JvmOverloads constructor(
 
     init {
         // 状态栏
-        statusBar.setBackgroundColor(styleBuilder.statusBarBackgroundColor)
-        if (styleBuilder.isShowCustomStatusBar) {
+        statusBar.setBackgroundColor(styleBuilder.statusbarBackgroundColor)
+        if (styleBuilder.isShowCustomStatusbar) {
             val activity = getActivity()
             if (activity != null) {
                 showCustomStatusBar(activity)
@@ -79,7 +79,7 @@ class HandyTitleBar @JvmOverloads constructor(
         // 顶部分割线
         topLineView.setBackgroundColor(styleBuilder.topLineColor)
         // 标题栏
-        titleBar.background = styleBuilder.titleBarBackground
+        titleBar.background = styleBuilder.titlebarBackground
         // 左侧按钮
         leftActionsLayout.orientation = LinearLayout.HORIZONTAL
         leftActionsLayout.setBackgroundColor(Color.TRANSPARENT)
@@ -151,7 +151,7 @@ class HandyTitleBar @JvmOverloads constructor(
 
         addView(
             statusBar,
-            LayoutParams(LayoutParams.MATCH_PARENT, styleBuilder.statusBarHeight.toInt())
+            LayoutParams(LayoutParams.MATCH_PARENT, styleBuilder.statusbarHeight.toInt())
         )
         addView(
             topLineView,
@@ -159,19 +159,19 @@ class HandyTitleBar @JvmOverloads constructor(
         )
         addView(
             titleBar,
-            LayoutParams(LayoutParams.MATCH_PARENT, styleBuilder.titleBarHeight.toInt())
+            LayoutParams(LayoutParams.MATCH_PARENT, styleBuilder.titlebarHeight.toInt())
         )
         addView(
             leftActionsLayout,
-            LayoutParams(LayoutParams.WRAP_CONTENT, styleBuilder.titleBarHeight.toInt())
+            LayoutParams(LayoutParams.WRAP_CONTENT, styleBuilder.titlebarHeight.toInt())
         )
         addView(
             contentLayout,
-            LayoutParams(LayoutParams.WRAP_CONTENT, styleBuilder.titleBarHeight.toInt())
+            LayoutParams(LayoutParams.WRAP_CONTENT, styleBuilder.titlebarHeight.toInt())
         )
         addView(
             rightActionsLayout,
-            LayoutParams(LayoutParams.WRAP_CONTENT, styleBuilder.titleBarHeight.toInt())
+            LayoutParams(LayoutParams.WRAP_CONTENT, styleBuilder.titlebarHeight.toInt())
         )
         addView(
             bottomLineView,
@@ -188,25 +188,25 @@ class HandyTitleBar @JvmOverloads constructor(
 
         parentWidth = if (widthMode != MeasureSpec.AT_MOST) widthSize else displayWidth
         parentHeight =
-            if (heightMode != MeasureSpec.AT_MOST) heightSize else (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + styleBuilder.bottomLineHeight).toInt()
+            if (heightMode != MeasureSpec.AT_MOST) heightSize else (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + styleBuilder.bottomLineHeight).toInt()
         parentMarginTop =
-            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginTop.toInt()
+            if (styleBuilder.titlebarMargin > 0) styleBuilder.titlebarMargin.toInt() else styleBuilder.titlebarMarginTop.toInt()
         parentMarginLeft =
-            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginLeft.toInt()
+            if (styleBuilder.titlebarMargin > 0) styleBuilder.titlebarMargin.toInt() else styleBuilder.titlebarMarginLeft.toInt()
         parentMarginRight =
-            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginRight.toInt()
+            if (styleBuilder.titlebarMargin > 0) styleBuilder.titlebarMargin.toInt() else styleBuilder.titlebarMarginRight.toInt()
         parentMarginBottom =
-            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginBottom.toInt()
+            if (styleBuilder.titlebarMargin > 0) styleBuilder.titlebarMargin.toInt() else styleBuilder.titlebarMarginBottom.toInt()
 
         measureChild(
             statusBar,
             MeasureSpec.makeMeasureSpec(displayWidth, MeasureSpec.EXACTLY),
-            MeasureSpec.makeMeasureSpec(styleBuilder.statusBarHeight.toInt(), MeasureSpec.EXACTLY)
+            MeasureSpec.makeMeasureSpec(styleBuilder.statusbarHeight.toInt(), MeasureSpec.EXACTLY)
         )
         measureChild(
             titleBar,
             MeasureSpec.makeMeasureSpec(parentWidth, MeasureSpec.EXACTLY),
-            MeasureSpec.makeMeasureSpec(styleBuilder.titleBarHeight.toInt(), MeasureSpec.EXACTLY)
+            MeasureSpec.makeMeasureSpec(styleBuilder.titlebarHeight.toInt(), MeasureSpec.EXACTLY)
         )
         measureChild(
             topLineView,
@@ -221,12 +221,12 @@ class HandyTitleBar @JvmOverloads constructor(
         measureChild(
             leftActionsLayout,
             widthMeasureSpec,
-            MeasureSpec.makeMeasureSpec(styleBuilder.titleBarHeight.toInt(), MeasureSpec.EXACTLY)
+            MeasureSpec.makeMeasureSpec(styleBuilder.titlebarHeight.toInt(), MeasureSpec.EXACTLY)
         )
         measureChild(
             rightActionsLayout,
             widthMeasureSpec,
-            MeasureSpec.makeMeasureSpec(styleBuilder.titleBarHeight.toInt(), MeasureSpec.EXACTLY)
+            MeasureSpec.makeMeasureSpec(styleBuilder.titlebarHeight.toInt(), MeasureSpec.EXACTLY)
         )
 
         if (leftActionsLayout.measuredWidth > rightActionsLayout.measuredWidth) {
@@ -236,7 +236,7 @@ class HandyTitleBar @JvmOverloads constructor(
                     MeasureSpec.EXACTLY
                 ),
                 MeasureSpec.makeMeasureSpec(
-                    styleBuilder.titleBarHeight.toInt(),
+                    styleBuilder.titlebarHeight.toInt(),
                     MeasureSpec.EXACTLY
                 )
             )
@@ -247,7 +247,7 @@ class HandyTitleBar @JvmOverloads constructor(
                     MeasureSpec.EXACTLY
                 ),
                 MeasureSpec.makeMeasureSpec(
-                    styleBuilder.titleBarHeight.toInt(),
+                    styleBuilder.titlebarHeight.toInt(),
                     MeasureSpec.EXACTLY
                 )
             )
@@ -257,28 +257,28 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        statusBar.layout(0, 0, displayWidth, styleBuilder.statusBarHeight.toInt())
+        statusBar.layout(0, 0, displayWidth, styleBuilder.statusbarHeight.toInt())
 
         topLineView.layout(
             0,
-            styleBuilder.statusBarHeight.toInt(),
+            styleBuilder.statusbarHeight.toInt(),
             parentWidth,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight).toInt()
+            (styleBuilder.statusbarHeight + styleBuilder.topLineHeight).toInt()
         )
 
         titleBar.layout(
             parentMarginLeft,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+            (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
             parentWidth - parentMarginRight,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
+            (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt()
         )
 
         if (leftActionsLayout.childCount > 0) {
             leftActionsLayout.layout(
                 (parentMarginLeft + styleBuilder.actionParentMargin).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
                 (parentMarginLeft + styleBuilder.actionParentMargin + leftActionsLayout.measuredWidth).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
+                (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt()
             )
         }
 
@@ -286,48 +286,48 @@ class HandyTitleBar @JvmOverloads constructor(
             if (leftActionsLayout.measuredWidth > rightActionsLayout.measuredWidth) {
                 contentLayout.layout(
                     (leftActionsLayout.measuredWidth + parentMarginLeft + styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                    (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
                     (parentWidth - leftActionsLayout.measuredWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
+                    (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt()
                 )
             } else {
                 contentLayout.layout(
                     (rightActionsLayout.measuredWidth + parentMarginLeft + styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                    (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
                     (parentWidth - rightActionsLayout.measuredWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
+                    (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt()
                 )
             }
         } else {
             contentLayout.layout(
                 parentMarginLeft,
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
                 parentWidth - parentMarginRight,
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
+                (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt()
             )
         }
 
         if (rightActionsLayout.childCount > 0) {
             rightActionsLayout.layout(
                 (parentWidth - rightActionsLayout.measuredWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
                 (parentWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
+                (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt()
             )
         }
 
         bottomLineView.layout(
             parentMarginLeft,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt(),
+            (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + parentMarginTop).toInt(),
             parentWidth - parentMarginRight,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + styleBuilder.bottomLineHeight + parentMarginTop).toInt()
+            (styleBuilder.statusbarHeight + styleBuilder.topLineHeight + styleBuilder.titlebarHeight + styleBuilder.bottomLineHeight + parentMarginTop).toInt()
         )
     }
 
     /**
      * 设置系统状态栏是否可见，安卓系统版本大于等于19
      */
-    private fun showCustomStatusBar(activity: Activity): HandyTitleBar {
+    private fun showCustomStatusBar(activity: Activity): HandyTitlebar {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             activity.window.decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -369,9 +369,9 @@ class HandyTitleBar @JvmOverloads constructor(
     //  属性修改
     //============================================================
 
-    fun setStatusBarHeight(@DimenRes resId: Int): HandyTitleBar {
+    fun setStatusbarHeight(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.statusBarHeight = resources.getDimension(resId)
+            styleBuilder.statusbarHeight = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -379,10 +379,10 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setStatusBarBackgroundColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setStatusbarBackgroundColor(@ColorRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.statusBarBackgroundColor = ContextCompat.getColor(context, resId)
-            statusBar.setBackgroundColor(styleBuilder.statusBarBackgroundColor)
+            styleBuilder.statusbarBackgroundColor = ContextCompat.getColor(context, resId)
+            statusBar.setBackgroundColor(styleBuilder.statusbarBackgroundColor)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -390,7 +390,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setTopLineHeight(@DimenRes resId: Int): HandyTitleBar {
+    fun setTopLineHeight(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.topLineHeight = resources.getDimension(resId)
             requestLayout()
@@ -400,7 +400,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setTopLineColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setTopLineColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.topLineColor = ContextCompat.getColor(context, resId)
             topLineView.setBackgroundColor(styleBuilder.topLineColor)
@@ -411,9 +411,9 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setTitleBarMargin(@DimenRes resId: Int): HandyTitleBar {
+    fun setTitlebarMargin(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarMargin = resources.getDimension(resId)
+            styleBuilder.titlebarMargin = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -422,9 +422,9 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarMarginTop(@DimenRes resId: Int): HandyTitleBar {
+    fun setTitlebarMarginTop(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarMarginTop = resources.getDimension(resId)
+            styleBuilder.titlebarMarginTop = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -433,9 +433,9 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarMarginLeft(@DimenRes resId: Int): HandyTitleBar {
+    fun setTitlebarMarginLeft(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarMarginLeft = resources.getDimension(resId)
+            styleBuilder.titlebarMarginLeft = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -444,9 +444,9 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarMarginRight(@DimenRes resId: Int): HandyTitleBar {
+    fun setTitlebarMarginRight(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarMarginRight = resources.getDimension(resId)
+            styleBuilder.titlebarMarginRight = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -455,9 +455,9 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarMarginBottom(@DimenRes resId: Int): HandyTitleBar {
+    fun setTitlebarMarginBottom(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarMarginBottom = resources.getDimension(resId)
+            styleBuilder.titlebarMarginBottom = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -466,9 +466,9 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarHeight(@DimenRes resId: Int): HandyTitleBar {
+    fun setTitlebarHeight(@DimenRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarHeight = resources.getDimension(resId)
+            styleBuilder.titlebarHeight = resources.getDimension(resId)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -477,10 +477,10 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarBackground(@DrawableRes resId: Int): HandyTitleBar {
+    fun setTitlebarBackground(@DrawableRes resId: Int): HandyTitlebar {
         try {
-            styleBuilder.titleBarBackground = ContextCompat.getDrawable(context, resId)
-            titleBar.background = styleBuilder.titleBarBackground
+            styleBuilder.titlebarBackground = ContextCompat.getDrawable(context, resId)
+            titleBar.background = styleBuilder.titlebarBackground
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -488,7 +488,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setMainTextSize(@DimenRes resId: Int): HandyTitleBar {
+    fun setMainTextSize(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.mainTextSize = resources.getDimension(resId)
             mainTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.mainTextSize)
@@ -499,7 +499,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setMainTextColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setMainTextColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.mainTextColor = ContextCompat.getColor(context, resId)
             mainTextView.setTextColor(styleBuilder.mainTextColor)
@@ -510,7 +510,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setMainTextBackgroundColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setMainTextBackgroundColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.mainTextBackgroundColor = ContextCompat.getColor(context, resId)
             mainTextView.setBackgroundColor(styleBuilder.mainTextBackgroundColor)
@@ -521,7 +521,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setSubTextSize(@DimenRes resId: Int): HandyTitleBar {
+    fun setSubTextSize(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.subTextSize = resources.getDimension(resId)
             subTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.subTextSize)
@@ -532,7 +532,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setSubTextColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setSubTextColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.subTextColor = ContextCompat.getColor(context, resId)
             subTextView.setTextColor(styleBuilder.subTextColor)
@@ -543,7 +543,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setSubTextBackgroundColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setSubTextBackgroundColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.subTextBackgroundColor = ContextCompat.getColor(context, resId)
             subTextView.setBackgroundColor(styleBuilder.subTextBackgroundColor)
@@ -554,7 +554,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setBottomLineHeight(@DimenRes resId: Int): HandyTitleBar {
+    fun setBottomLineHeight(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.bottomLineHeight = resources.getDimension(resId)
             requestLayout()
@@ -565,7 +565,7 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setBottomLineColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setBottomLineColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.bottomLineColor = ContextCompat.getColor(context, resId)
             bottomLineView.setBackgroundColor(styleBuilder.bottomLineColor)
@@ -576,7 +576,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setActionTextSize(@DimenRes resId: Int): HandyTitleBar {
+    fun setActionTextSize(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.actionTextSize = resources.getDimension(resId)
             requestLayout()
@@ -586,7 +586,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setActionTextColor(@ColorRes resId: Int): HandyTitleBar {
+    fun setActionTextColor(@ColorRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.actionTextColor = ContextCompat.getColor(context, resId)
             requestLayout()
@@ -596,7 +596,7 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setActionImageSize(@DimenRes resId: Int): HandyTitleBar {
+    fun setActionImageSize(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.actionImageSize = resources.getDimension(resId)
             requestLayout()

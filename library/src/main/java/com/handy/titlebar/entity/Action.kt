@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import com.handy.titlebar.utils.HandyTitleBarUtils
+import com.handy.titlebar.utils.HandyTitlebarUtils
 
 /**
  * @title: Action
@@ -124,7 +124,7 @@ abstract class Action {
 
     fun setTextSize(spSize: Float): Action {
         if (spSize > 0) {
-            this.actionTextSize = HandyTitleBarUtils.spTopx(spSize)
+            this.actionTextSize = HandyTitlebarUtils.spTopx(spSize)
         }
         return this
     }
@@ -153,14 +153,14 @@ abstract class Action {
 
     fun setImageSize(dpSize: Float): Action {
         if (dpSize >= 0) {
-            this.actionImageSize = HandyTitleBarUtils.dpTopx(dpSize)
+            this.actionImageSize = HandyTitlebarUtils.dpTopx(dpSize)
         }
         return this
     }
 
     fun setTextMarginLeft(dpSize: Float): Action {
         if (dpSize >= 0) {
-            this.actionTextMarginLeft = HandyTitleBarUtils.dpTopx(dpSize)
+            this.actionTextMarginLeft = HandyTitlebarUtils.dpTopx(dpSize)
         }
         return this
     }
