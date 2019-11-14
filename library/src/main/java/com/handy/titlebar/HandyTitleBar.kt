@@ -36,12 +36,12 @@ class HandyTitleBar @JvmOverloads constructor(
 
     private var displayWidth: Int = HandyTitleBarUtils.getScreenWidth(context)
 
+    private var parentWidth: Int = 0
+    private var parentHeight: Int = 0
     private var parentMarginTop: Int = 0
     private var parentMarginLeft: Int = 0
     private var parentMarginRight: Int = 0
     private var parentMarginBottom: Int = 0
-    private var parentWidth: Int = 0
-    private var parentHeight: Int = 0
 
     private var statusBar: View = View(context)
     private var topLineView: View = View(context)
@@ -53,11 +53,7 @@ class HandyTitleBar @JvmOverloads constructor(
     private var rightActionsLayout: LinearLayout = LinearLayout(context)
     private var bottomLineView: View = View(context)
 
-    //============================================================
-    //  公有配置
-    //============================================================
-
-    var styleBuilder: StyleBuilder = StyleBuilder(context, attrs, resources)
+    private var styleBuilder: StyleBuilder = StyleBuilder(context, attrs, resources)
 
     //============================================================
     //  方法区
@@ -106,6 +102,20 @@ class HandyTitleBar @JvmOverloads constructor(
         subTextView.ellipsize = TextUtils.TruncateAt.MARQUEE
         subTextView.visibility =
             if (styleBuilder.subText.isNullOrEmpty()) View.GONE else View.VISIBLE
+
+        if (subTextView.visibility == View.GONE) {
+            mainTextView.setPadding(0, 0, 0, 0)
+            subTextView.setPadding(0, 0, 0, 0)
+        } else {
+            if (contentLayout.orientation == VERTICAL) {
+                mainTextView.setPadding(0, 0, 0, styleBuilder.textMarginV.toInt())
+                subTextView.setPadding(0, styleBuilder.textMarginV.toInt(), 0, 0)
+            } else if (contentLayout.orientation == HORIZONTAL) {
+                mainTextView.setPadding(0, 0, styleBuilder.textMarginH.toInt(), 0)
+                subTextView.setPadding(styleBuilder.textMarginH.toInt(), 0, 0, 0)
+            }
+        }
+
         // 标题文本容器
         contentLayout.orientation = styleBuilder.contentLayoutOrientation
         contentLayout.gravity = Gravity.CENTER
@@ -129,12 +139,10 @@ class HandyTitleBar @JvmOverloads constructor(
             )
         )
         // 右侧按钮
-        rightActionsLayout = LinearLayout(context)
         rightActionsLayout.orientation = LinearLayout.HORIZONTAL
         rightActionsLayout.setBackgroundColor(Color.TRANSPARENT)
         rightActionsLayout.gravity = Gravity.CENTER
         // 底部分割线
-        bottomLineView = View(context)
         bottomLineView.setBackgroundColor(styleBuilder.bottomLineColor)
 
         addView(
@@ -174,19 +182,9 @@ class HandyTitleBar @JvmOverloads constructor(
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
 
-        if (subTextView.visibility == View.GONE) {
-            mainTextView.setPadding(0, 0, 0, 0)
-            subTextView.setPadding(0, 0, 0, 0)
-        } else {
-            if (contentLayout.orientation == VERTICAL) {
-                mainTextView.setPadding(0, 0, 0, styleBuilder.textMarginV.toInt())
-                subTextView.setPadding(0, styleBuilder.textMarginV.toInt(), 0, 0)
-            } else if (contentLayout.orientation == HORIZONTAL) {
-                mainTextView.setPadding(0, 0, styleBuilder.textMarginH.toInt(), 0)
-                subTextView.setPadding(styleBuilder.textMarginH.toInt(), 0, 0, 0)
-            }
-        }
-
+        parentWidth = if (widthMode != MeasureSpec.AT_MOST) widthSize else displayWidth
+        parentHeight =
+            if (heightMode != MeasureSpec.AT_MOST) heightSize else (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + styleBuilder.bottomLineHeight).toInt()
         parentMarginTop =
             if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginTop.toInt()
         parentMarginLeft =
@@ -195,10 +193,6 @@ class HandyTitleBar @JvmOverloads constructor(
             if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginRight.toInt()
         parentMarginBottom =
             if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginBottom.toInt()
-
-        parentWidth = if (widthMode != MeasureSpec.AT_MOST) widthSize else displayWidth
-        parentHeight =
-            if (heightMode != MeasureSpec.AT_MOST) heightSize else (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + styleBuilder.bottomLineHeight).toInt()
 
         measureChild(
             statusBar,
@@ -329,7 +323,7 @@ class HandyTitleBar @JvmOverloads constructor(
     /**
      * 设置系统状态栏是否可见，安卓系统版本大于等于19
      */
-    fun showCustomStatusBar(activity: Activity): HandyTitleBar {
+    private fun showCustomStatusBar(activity: Activity): HandyTitleBar {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             activity.window.decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
