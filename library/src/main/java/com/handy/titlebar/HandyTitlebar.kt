@@ -421,7 +421,6 @@ class HandyTitlebar @JvmOverloads constructor(
         return this
     }
 
-
     fun setTitlebarMarginTop(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.titlebarMarginTop = resources.getDimension(resId)
@@ -431,7 +430,6 @@ class HandyTitlebar @JvmOverloads constructor(
         }
         return this
     }
-
 
     fun setTitlebarMarginLeft(@DimenRes resId: Int): HandyTitlebar {
         try {
@@ -443,7 +441,6 @@ class HandyTitlebar @JvmOverloads constructor(
         return this
     }
 
-
     fun setTitlebarMarginRight(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.titlebarMarginRight = resources.getDimension(resId)
@@ -453,7 +450,6 @@ class HandyTitlebar @JvmOverloads constructor(
         }
         return this
     }
-
 
     fun setTitlebarMarginBottom(@DimenRes resId: Int): HandyTitlebar {
         try {
@@ -465,7 +461,6 @@ class HandyTitlebar @JvmOverloads constructor(
         return this
     }
 
-
     fun setTitlebarHeight(@DimenRes resId: Int): HandyTitlebar {
         try {
             styleBuilder.titlebarHeight = resources.getDimension(resId)
@@ -475,7 +470,6 @@ class HandyTitlebar @JvmOverloads constructor(
         }
         return this
     }
-
 
     fun setTitlebarBackground(@DrawableRes resId: Int): HandyTitlebar {
         try {
@@ -563,7 +557,6 @@ class HandyTitlebar @JvmOverloads constructor(
         }
         return this
     }
-
 
     fun setBottomLineColor(@ColorRes resId: Int): HandyTitlebar {
         try {
