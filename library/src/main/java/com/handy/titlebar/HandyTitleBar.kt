@@ -14,8 +14,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
-import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import com.handy.titlebar.entity.StyleBuilder
 import com.handy.titlebar.utils.HandyTitleBarUtils
 import com.handy.titlebar.widget.MarqueeTextView
@@ -85,7 +87,7 @@ class HandyTitleBar @JvmOverloads constructor(
         // 主标题
         mainTextView.text = styleBuilder.mainText
         mainTextView.setTextColor(styleBuilder.mainTextColor)
-        mainTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.mainTextSize.toFloat())
+        mainTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.mainTextSize)
         mainTextView.setBackgroundColor(styleBuilder.mainTextBackgroundColor)
         mainTextView.setSingleLine()
         mainTextView.gravity = Gravity.CENTER
@@ -96,7 +98,7 @@ class HandyTitleBar @JvmOverloads constructor(
         // 副标题
         subTextView.text = styleBuilder.subText
         subTextView.setTextColor(styleBuilder.subTextColor)
-        subTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.subTextSize.toFloat())
+        subTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.subTextSize)
         subTextView.setBackgroundColor(styleBuilder.subTextBackgroundColor)
         subTextView.setSingleLine()
         subTextView.gravity = Gravity.CENTER
@@ -363,6 +365,10 @@ class HandyTitleBar @JvmOverloads constructor(
         return null
     }
 
+    //============================================================
+    //  属性修改
+    //============================================================
+
     fun setStatusBarHeight(@DimenRes resId: Int): HandyTitleBar {
         try {
             styleBuilder.statusBarHeight = resources.getDimension(resId)
@@ -373,10 +379,10 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-    fun setStatusBarBackgroundColor(@ColorInt resId: Int): HandyTitleBar {
+    fun setStatusBarBackgroundColor(@ColorRes resId: Int): HandyTitleBar {
         try {
-            statusBar.setBackgroundColor(resId)
-            styleBuilder.statusBarBackgroundColor = resId
+            styleBuilder.statusBarBackgroundColor = ContextCompat.getColor(context, resId)
+            statusBar.setBackgroundColor(styleBuilder.statusBarBackgroundColor)
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -394,9 +400,14 @@ class HandyTitleBar @JvmOverloads constructor(
         return this
     }
 
-
-    fun setTopLineColor(): HandyTitleBar {
-        requestLayout()
+    fun setTopLineColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.topLineColor = ContextCompat.getColor(context, resId)
+            topLineView.setBackgroundColor(styleBuilder.topLineColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
@@ -466,38 +477,80 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setTitleBarBackground(): HandyTitleBar {
-        requestLayout()
+    fun setTitleBarBackground(@DrawableRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarBackground = ContextCompat.getDrawable(context, resId)
+            titleBar.background = styleBuilder.titleBarBackground
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setMainTextSize(): HandyTitleBar {
-        requestLayout()
+    fun setMainTextSize(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.mainTextSize = resources.getDimension(resId)
+            mainTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.mainTextSize)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setMainTextColor(): HandyTitleBar {
-        requestLayout()
+    fun setMainTextColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.mainTextColor = ContextCompat.getColor(context, resId)
+            mainTextView.setTextColor(styleBuilder.mainTextColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setMainTextBackgroundColor(): HandyTitleBar {
-        requestLayout()
+    fun setMainTextBackgroundColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.mainTextBackgroundColor = ContextCompat.getColor(context, resId)
+            mainTextView.setBackgroundColor(styleBuilder.mainTextBackgroundColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setSubTextSize(): HandyTitleBar {
-        requestLayout()
+    fun setSubTextSize(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.subTextSize = resources.getDimension(resId)
+            subTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, styleBuilder.subTextSize)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setSubTextColor(): HandyTitleBar {
-        requestLayout()
+    fun setSubTextColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.subTextColor = ContextCompat.getColor(context, resId)
+            subTextView.setTextColor(styleBuilder.subTextColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setSubTextBackgroundColor(): HandyTitleBar {
-        requestLayout()
+    fun setSubTextBackgroundColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.subTextBackgroundColor = ContextCompat.getColor(context, resId)
+            subTextView.setBackgroundColor(styleBuilder.subTextBackgroundColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
@@ -512,23 +565,44 @@ class HandyTitleBar @JvmOverloads constructor(
     }
 
 
-    fun setBottomLineColor(): HandyTitleBar {
-        requestLayout()
+    fun setBottomLineColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.bottomLineColor = ContextCompat.getColor(context, resId)
+            bottomLineView.setBackgroundColor(styleBuilder.bottomLineColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setActionTextSize(): HandyTitleBar {
-        requestLayout()
+    fun setActionTextSize(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.actionTextSize = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setActionTextColor(): HandyTitleBar {
-        requestLayout()
+    fun setActionTextColor(@ColorRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.actionTextColor = ContextCompat.getColor(context, resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 
-    fun setActionImageSize(): HandyTitleBar {
-        requestLayout()
+    fun setActionImageSize(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.actionImageSize = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         return this
     }
 }
