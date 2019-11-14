@@ -8,11 +8,11 @@
         <attr name="handy_topLineHeight" format="dimension" />
         <attr name="handy_topLineColor" format="color" />
 
-        <attr name="handy_titleBarPadding" format="dimension" />
-        <attr name="handy_titleBarPaddingTop" format="dimension" />
-        <attr name="handy_titleBarPaddingLeft" format="dimension" />
-        <attr name="handy_titleBarPaddingRight" format="dimension" />
-        <attr name="handy_titleBarPaddingBottom" format="dimension" />
+        <attr name="handy_titleBarMargin" format="dimension" />
+        <attr name="handy_titleBarMarginTop" format="dimension" />
+        <attr name="handy_titleBarMarginLeft" format="dimension" />
+        <attr name="handy_titleBarMarginRight" format="dimension" />
+        <attr name="handy_titleBarMarginBottom" format="dimension" />
         <attr name="handy_titleBarHeight" format="dimension" />
         <attr name="handy_titleBarBackground" format="reference|color" />
 
