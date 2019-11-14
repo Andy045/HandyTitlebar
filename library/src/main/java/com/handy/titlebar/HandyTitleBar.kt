@@ -107,7 +107,7 @@ class HandyTitleBar @JvmOverloads constructor(
         subTextView.visibility =
             if (styleBuilder.subText.isNullOrEmpty()) View.GONE else View.VISIBLE
         // 标题文本容器
-        contentLayout.orientation = LinearLayout.VERTICAL
+        contentLayout.orientation = styleBuilder.contentLayoutOrientation
         contentLayout.gravity = Gravity.CENTER
         contentLayout.setBackgroundColor(Color.TRANSPARENT)
         contentLayout.setPadding(
