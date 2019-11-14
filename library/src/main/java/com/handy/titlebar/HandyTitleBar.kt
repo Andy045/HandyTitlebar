@@ -14,6 +14,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
+import androidx.annotation.ColorInt
+import androidx.annotation.DimenRes
 import com.handy.titlebar.entity.StyleBuilder
 import com.handy.titlebar.utils.HandyTitleBarUtils
 import com.handy.titlebar.widget.MarqueeTextView
@@ -359,5 +361,174 @@ class HandyTitleBar @JvmOverloads constructor(
             }
         }
         return null
+    }
+
+    fun setStatusBarHeight(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.statusBarHeight = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+    fun setStatusBarBackgroundColor(@ColorInt resId: Int): HandyTitleBar {
+        try {
+            statusBar.setBackgroundColor(resId)
+            styleBuilder.statusBarBackgroundColor = resId
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+    fun setTopLineHeight(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.topLineHeight = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTopLineColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setTitleBarMargin(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarMargin = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTitleBarMarginTop(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarMarginTop = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTitleBarMarginLeft(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarMarginLeft = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTitleBarMarginRight(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarMarginRight = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTitleBarMarginBottom(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarMarginBottom = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTitleBarHeight(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.titleBarHeight = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setTitleBarBackground(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setMainTextSize(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setMainTextColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setMainTextBackgroundColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setSubTextSize(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setSubTextColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setSubTextBackgroundColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setBottomLineHeight(@DimenRes resId: Int): HandyTitleBar {
+        try {
+            styleBuilder.bottomLineHeight = resources.getDimension(resId)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+
+    fun setBottomLineColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setActionTextSize(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setActionTextColor(): HandyTitleBar {
+        requestLayout()
+        return this
+    }
+
+    fun setActionImageSize(): HandyTitleBar {
+        requestLayout()
+        return this
     }
 }
