@@ -17,6 +17,10 @@
         <attr name="handy_titleBarBackground" format="reference|color" />
 
         <attr name="handy_contentLayoutPadding" format="dimension" />
+        <attr name="handy_contentLayoutOrientation">
+            <enum name="vertical" value="1" />
+            <enum name="horizontal" value="0" />
+        </attr>
         <attr name="handy_mainText" format="string" />
         <attr name="handy_mainTextSize" format="dimension" />
         <attr name="handy_mainTextColor" format="color" />
@@ -30,8 +34,7 @@
         <attr name="handy_bottomLineColor" format="color" />
 
         <attr name="handy_actionViewPadding" format="dimension" />
-        <attr name="handy_actionLayoutPadding" format="dimension" />
-        <attr name="handy_actionTextMarginLeft" format="dimension" />
+        <attr name="handy_actionSpacing" format="dimension" />
         <attr name="handy_actionTextSize" format="dimension" />
         <attr name="handy_actionTextColor" format="color" />
         <attr name="handy_actionImageSize" format="dimension" />
