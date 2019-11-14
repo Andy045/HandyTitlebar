@@ -36,10 +36,10 @@ class HandyTitleBar @JvmOverloads constructor(
 
     private var displayWidth: Int = HandyTitleBarUtils.getScreenWidth(context)
 
-    private var parentPaddingTop: Int = 0
-    private var parentPaddingLeft: Int = 0
-    private var parentPaddingRight: Int = 0
-    private var parentPaddingBottom: Int = 0
+    private var parentMarginTop: Int = 0
+    private var parentMarginLeft: Int = 0
+    private var parentMarginRight: Int = 0
+    private var parentMarginBottom: Int = 0
     private var parentWidth: Int = 0
     private var parentHeight: Int = 0
 
@@ -187,14 +187,14 @@ class HandyTitleBar @JvmOverloads constructor(
             }
         }
 
-        parentPaddingTop =
-            if (styleBuilder.titleBarPadding > 0) styleBuilder.titleBarPadding.toInt() else styleBuilder.titleBarPaddingTop.toInt()
-        parentPaddingLeft =
-            if (styleBuilder.titleBarPadding > 0) styleBuilder.titleBarPadding.toInt() else styleBuilder.titleBarPaddingLeft.toInt()
-        parentPaddingRight =
-            if (styleBuilder.titleBarPadding > 0) styleBuilder.titleBarPadding.toInt() else styleBuilder.titleBarPaddingRight.toInt()
-        parentPaddingBottom =
-            if (styleBuilder.titleBarPadding > 0) styleBuilder.titleBarPadding.toInt() else styleBuilder.titleBarPaddingBottom.toInt()
+        parentMarginTop =
+            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginTop.toInt()
+        parentMarginLeft =
+            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginLeft.toInt()
+        parentMarginRight =
+            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginRight.toInt()
+        parentMarginBottom =
+            if (styleBuilder.titleBarMargin > 0) styleBuilder.titleBarMargin.toInt() else styleBuilder.titleBarMarginBottom.toInt()
 
         parentWidth = if (widthMode != MeasureSpec.AT_MOST) widthSize else displayWidth
         parentHeight =
@@ -255,7 +255,7 @@ class HandyTitleBar @JvmOverloads constructor(
             )
         }
 
-        setMeasuredDimension(displayWidth, parentHeight + paddingTop + paddingBottom)
+        setMeasuredDimension(displayWidth, parentHeight + parentMarginTop + parentMarginBottom)
     }
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
@@ -269,60 +269,60 @@ class HandyTitleBar @JvmOverloads constructor(
         )
 
         titleBar.layout(
-            paddingLeft,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + paddingTop).toInt(),
-            parentWidth - paddingRight,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt()
+            parentMarginLeft,
+            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+            parentWidth - parentMarginRight,
+            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
         )
 
         if (leftActionsLayout.childCount > 0) {
             leftActionsLayout.layout(
-                (paddingLeft + styleBuilder.actionParentMargin).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + paddingTop).toInt(),
-                (paddingLeft + styleBuilder.actionParentMargin + leftActionsLayout.measuredWidth).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt()
+                (parentMarginLeft + styleBuilder.actionParentMargin).toInt(),
+                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                (parentMarginLeft + styleBuilder.actionParentMargin + leftActionsLayout.measuredWidth).toInt(),
+                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
             )
         }
 
         if (leftActionsLayout.childCount > 0 || rightActionsLayout.childCount > 0) {
             if (leftActionsLayout.measuredWidth > rightActionsLayout.measuredWidth) {
                 contentLayout.layout(
-                    (leftActionsLayout.measuredWidth + paddingLeft + styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + paddingTop).toInt(),
-                    (parentWidth - leftActionsLayout.measuredWidth - paddingRight - styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt()
+                    (leftActionsLayout.measuredWidth + parentMarginLeft + styleBuilder.actionParentMargin).toInt(),
+                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                    (parentWidth - leftActionsLayout.measuredWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
+                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
                 )
             } else {
                 contentLayout.layout(
-                    (rightActionsLayout.measuredWidth + paddingLeft + styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + paddingTop).toInt(),
-                    (parentWidth - rightActionsLayout.measuredWidth - paddingRight - styleBuilder.actionParentMargin).toInt(),
-                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt()
+                    (rightActionsLayout.measuredWidth + parentMarginLeft + styleBuilder.actionParentMargin).toInt(),
+                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                    (parentWidth - rightActionsLayout.measuredWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
+                    (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
                 )
             }
         } else {
             contentLayout.layout(
-                paddingLeft,
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + paddingTop).toInt(),
-                parentWidth - paddingRight,
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt()
+                parentMarginLeft,
+                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                parentWidth - parentMarginRight,
+                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
             )
         }
 
         if (rightActionsLayout.childCount > 0) {
             rightActionsLayout.layout(
-                (parentWidth - rightActionsLayout.measuredWidth - paddingRight - styleBuilder.actionParentMargin).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + paddingTop).toInt(),
-                (parentWidth - paddingRight - styleBuilder.actionParentMargin).toInt(),
-                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt()
+                (parentWidth - rightActionsLayout.measuredWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
+                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + parentMarginTop).toInt(),
+                (parentWidth - parentMarginRight - styleBuilder.actionParentMargin).toInt(),
+                (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt()
             )
         }
 
         bottomLineView.layout(
-            paddingLeft,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + paddingTop).toInt(),
-            parentWidth - paddingRight,
-            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + styleBuilder.bottomLineHeight + paddingTop).toInt()
+            parentMarginLeft,
+            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + parentMarginTop).toInt(),
+            parentWidth - parentMarginRight,
+            (styleBuilder.statusBarHeight + styleBuilder.topLineHeight + styleBuilder.titleBarHeight + styleBuilder.bottomLineHeight + parentMarginTop).toInt()
         )
     }
 
