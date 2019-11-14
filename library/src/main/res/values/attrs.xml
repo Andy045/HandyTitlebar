@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="HandyTitleBarStyleable">
+        <!-- 状态栏 -->
+        <attr name="handy_isShowCustomStatusBar" format="boolean" />
         <attr name="handy_statusBarHeight" format="dimension" />
         <attr name="handy_statusBarBackgroundColor" format="color" />
-        <attr name="handy_isShowCustomStatusBar" format="boolean" />
 
+        <!-- 顶部分割线 -->
         <attr name="handy_topLineHeight" format="dimension" />
         <attr name="handy_topLineColor" format="color" />
 
+        <!-- 标题栏 -->
         <attr name="handy_titleBarMargin" format="dimension" />
         <attr name="handy_titleBarMarginTop" format="dimension" />
         <attr name="handy_titleBarMarginLeft" format="dimension" />
@@ -16,11 +19,16 @@
         <attr name="handy_titleBarHeight" format="dimension" />
         <attr name="handy_titleBarBackground" format="reference|color" />
 
+        <!-- 标题容器 -->
         <attr name="handy_contentLayoutPadding" format="dimension" />
         <attr name="handy_contentLayoutOrientation">
             <enum name="vertical" value="1" />
             <enum name="horizontal" value="0" />
         </attr>
+        <attr name="handy_textMarginH" format="dimension" />
+        <attr name="handy_textMarginV" format="dimension" />
+
+        <!-- 标题内容 -->
         <attr name="handy_mainText" format="string" />
         <attr name="handy_mainTextSize" format="dimension" />
         <attr name="handy_mainTextColor" format="color" />
@@ -30,9 +38,12 @@
         <attr name="handy_subTextColor" format="color" />
         <attr name="handy_subTextBackgroundColor" format="color" />
 
+        <!-- 底部分割线 -->
         <attr name="handy_bottomLineHeight" format="dimension" />
         <attr name="handy_bottomLineColor" format="color" />
 
+        <!-- 按钮 -->
+        <attr name="handy_actionParentMargin" format="dimension" />
         <attr name="handy_actionViewPadding" format="dimension" />
         <attr name="handy_actionSpacing" format="dimension" />
         <attr name="handy_actionTextSize" format="dimension" />
