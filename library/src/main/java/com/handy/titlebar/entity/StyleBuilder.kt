@@ -54,13 +54,13 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
     var textMarginV: Float = 0f
 
     var mainText: String? = null
-    var mainTextSize: Int = 0
+    var mainTextSize: Float = 0f
     @ColorInt
     var mainTextColor: Int = 0
     @ColorInt
     var mainTextBackgroundColor: Int = 0
     var subText: String? = null
-    var subTextSize: Int = 0
+    var subTextSize: Float = 0f
     @ColorInt
     var subTextColor: Int = 0
     @ColorInt
@@ -81,7 +81,7 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
     var actionParentMargin: Float = 0f
     var actionViewPadding: Float = 0f
     var actionSpacing: Float = 0f
-    var actionTextSize: Int = 0
+    var actionTextSize: Float = 0f
     @ColorInt
     var actionTextColor: Int = 0
     var actionImageSize: Float = 0f
@@ -165,9 +165,9 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
         )
 
         this.mainText = typedArray.getString(R.styleable.HandyTitleBarStyleable_handy_mainText)
-        this.mainTextSize = typedArray.getDimensionPixelSize(
+        this.mainTextSize = typedArray.getDimension(
             R.styleable.HandyTitleBarStyleable_handy_mainTextSize,
-            resources.getDimension(R.dimen.hdb_sp16).toInt()
+            resources.getDimension(R.dimen.hdb_sp16)
         )
         this.mainTextColor = typedArray.getColor(
             R.styleable.HandyTitleBarStyleable_handy_mainTextColor,
@@ -178,9 +178,9 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
             ContextCompat.getColor(context, R.color.web_transparent)
         )
         this.subText = typedArray.getString(R.styleable.HandyTitleBarStyleable_handy_subText)
-        this.subTextSize = typedArray.getDimensionPixelSize(
+        this.subTextSize = typedArray.getDimension(
             R.styleable.HandyTitleBarStyleable_handy_subTextSize,
-            resources.getDimension(R.dimen.hdb_sp12).toInt()
+            resources.getDimension(R.dimen.hdb_sp12)
         )
         this.subTextColor = typedArray.getColor(
             R.styleable.HandyTitleBarStyleable_handy_subTextColor,
@@ -214,9 +214,9 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
             R.styleable.HandyTitleBarStyleable_handy_actionSpacing,
             resources.getDimension(R.dimen.hdb_dp4)
         )
-        this.actionTextSize = typedArray.getDimensionPixelSize(
+        this.actionTextSize = typedArray.getDimension(
             R.styleable.HandyTitleBarStyleable_handy_actionTextSize,
-            resources.getDimension(R.dimen.hdb_sp12).toInt()
+            resources.getDimension(R.dimen.hdb_sp12)
         )
         this.actionTextColor = typedArray.getColor(
             R.styleable.HandyTitleBarStyleable_handy_actionTextColor,
@@ -235,8 +235,7 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
         try {
             val obj = Class.forName("com.android.internal.R\$dimen").newInstance()
             val field = Class.forName("com.android.internal.R\$dimen").getField("status_bar_height")
-            return context.resources.getDimensionPixelSize(Integer.parseInt(field.get(obj)!!.toString()))
-                .toFloat()
+            return context.resources.getDimension(Integer.parseInt(field.get(obj)!!.toString()))
         } catch (e: Exception) {
             e.printStackTrace()
         }
