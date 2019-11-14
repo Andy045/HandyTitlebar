@@ -49,6 +49,7 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
     var titleBarBackground: Drawable? = null
 
     var contentLayoutPadding: Float = 0f
+    var contentLayoutOrientation: Int = 1
     var textMarginH: Float = 0f
     var textMarginV: Float = 0f
     var mainText: String? = null
@@ -76,6 +77,7 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
     //  按钮
     //============================================================
 
+    var actionParentMargin: Float = 0f
     var actionViewPadding: Float = 0f
     var actionSpacing: Float = 0f
     var actionTextSize: Int = 0
@@ -147,6 +149,10 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
             R.styleable.HandyTitleBarStyleable_handy_contentLayoutPadding,
             resources.getDimension(R.dimen.hdb_dp8)
         )
+        this.contentLayoutOrientation = typedArray.getInt(
+            R.styleable.HandyTitleBarStyleable_handy_contentLayoutOrientation,
+            1
+        )
         this.textMarginH = resources.getDimension(R.dimen.hdb_dp2)
         this.textMarginV = resources.getDimension(R.dimen.hdb_dp1)
         this.mainText = typedArray.getString(R.styleable.HandyTitleBarStyleable_handy_mainText)
@@ -187,6 +193,7 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
         )
 
         // 按钮
+        this.actionParentMargin = resources.getDimension(R.dimen.hdb_dp9)
         this.actionViewPadding = typedArray.getDimension(
             R.styleable.HandyTitleBarStyleable_handy_actionViewPadding,
             resources.getDimension(R.dimen.handyTitleBar_actionViewPadding)
