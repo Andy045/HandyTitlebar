@@ -40,11 +40,11 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
     //  标题栏
     //============================================================
 
-    var titleBarPadding: Float = 0f
-    var titleBarPaddingTop: Float = 0f
-    var titleBarPaddingLeft: Float = 0f
-    var titleBarPaddingRight: Float = 0f
-    var titleBarPaddingBottom: Float = 0f
+    var titleBarMargin: Float = 0f
+    var titleBarMarginTop: Float = 0f
+    var titleBarMarginLeft: Float = 0f
+    var titleBarMarginRight: Float = 0f
+    var titleBarMarginBottom: Float = 0f
     var titleBarHeight: Float = 0f
     var titleBarBackground: Drawable? = null
 
@@ -114,24 +114,24 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
         )
 
         // 标题栏
-        this.titleBarPadding = typedArray.getDimension(
-            R.styleable.HandyTitleBarStyleable_handy_titleBarPadding,
+        this.titleBarMargin = typedArray.getDimension(
+            R.styleable.HandyTitleBarStyleable_handy_titleBarMargin,
             resources.getDimension(R.dimen.hdb_dp0)
         )
-        this.titleBarPaddingTop = typedArray.getDimension(
-            R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingTop,
+        this.titleBarMarginTop = typedArray.getDimension(
+            R.styleable.HandyTitleBarStyleable_handy_titleBarMarginTop,
             resources.getDimension(R.dimen.hdb_dp0)
         )
-        this.titleBarPaddingLeft = typedArray.getDimension(
-            R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingLeft,
+        this.titleBarMarginLeft = typedArray.getDimension(
+            R.styleable.HandyTitleBarStyleable_handy_titleBarMarginLeft,
             resources.getDimension(R.dimen.hdb_dp0)
         )
-        this.titleBarPaddingRight = typedArray.getDimension(
-            R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingRight,
+        this.titleBarMarginRight = typedArray.getDimension(
+            R.styleable.HandyTitleBarStyleable_handy_titleBarMarginRight,
             resources.getDimension(R.dimen.hdb_dp0)
         )
-        this.titleBarPaddingBottom = typedArray.getDimension(
-            R.styleable.HandyTitleBarStyleable_handy_titleBarPaddingBottom,
+        this.titleBarMarginBottom = typedArray.getDimension(
+            R.styleable.HandyTitleBarStyleable_handy_titleBarMarginBottom,
             resources.getDimension(R.dimen.hdb_dp0)
         )
         this.titleBarHeight = typedArray.getDimension(
