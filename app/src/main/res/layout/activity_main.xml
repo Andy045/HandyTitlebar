@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <com.handy.titlebar.HandyTitlebar
-        android:id="@+id/titlebarNew"
+        android:id="@+id/titlebar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:handy_contentLayoutOrientation="horizontal"
