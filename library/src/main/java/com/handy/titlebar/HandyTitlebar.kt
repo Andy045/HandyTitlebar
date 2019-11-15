@@ -59,13 +59,13 @@ class HandyTitlebar @JvmOverloads constructor(
 
     private var styleBuilder: StyleBuilder = StyleBuilder(context, attrs, resources)
 
+    enum class Orientation {
+        HORIZONTAL, VERTICAL
+    }
+
     //============================================================
     //  方法区
     //============================================================
-    companion object {
-        val VERTICAL = 1
-        val HORIZONTAL = 0
-    }
 
     init {
         // 状态栏
@@ -107,19 +107,6 @@ class HandyTitlebar @JvmOverloads constructor(
         subTextView.visibility =
             if (styleBuilder.subText.isNullOrEmpty()) View.GONE else View.VISIBLE
 
-        if (subTextView.visibility == View.GONE) {
-            mainTextView.setPadding(0, 0, 0, 0)
-            subTextView.setPadding(0, 0, 0, 0)
-        } else {
-            if (contentLayout.orientation == VERTICAL) {
-                mainTextView.setPadding(0, 0, 0, styleBuilder.textMarginV.toInt())
-                subTextView.setPadding(0, styleBuilder.textMarginV.toInt(), 0, 0)
-            } else if (contentLayout.orientation == HORIZONTAL) {
-                mainTextView.setPadding(0, 0, styleBuilder.textMarginH.toInt(), 0)
-                subTextView.setPadding(styleBuilder.textMarginH.toInt(), 0, 0, 0)
-            }
-        }
-
         // 标题文本容器
         contentLayout.orientation = styleBuilder.contentLayoutOrientation
         contentLayout.gravity = Gravity.CENTER
@@ -142,6 +129,19 @@ class HandyTitlebar @JvmOverloads constructor(
                 LayoutParams.WRAP_CONTENT
             )
         )
+
+        if (subTextView.visibility == View.GONE) {
+            mainTextView.setPadding(0, 0, 0, 0)
+            subTextView.setPadding(0, 0, 0, 0)
+        } else {
+            if (contentLayout.orientation == 1) {
+                mainTextView.setPadding(0, 0, 0, styleBuilder.textMarginV.toInt())
+                subTextView.setPadding(0, styleBuilder.textMarginV.toInt(), 0, 0)
+            } else if (contentLayout.orientation == 0) {
+                mainTextView.setPadding(0, 0, styleBuilder.textMarginH.toInt(), 0)
+                subTextView.setPadding(styleBuilder.textMarginH.toInt(), 0, 0, 0)
+            }
+        }
         // 右侧按钮
         rightActionsLayout.orientation = LinearLayout.HORIZONTAL
         rightActionsLayout.setBackgroundColor(Color.TRANSPARENT)
@@ -541,6 +541,18 @@ class HandyTitlebar @JvmOverloads constructor(
         try {
             styleBuilder.subTextBackgroundColor = ContextCompat.getColor(context, resId)
             subTextView.setBackgroundColor(styleBuilder.subTextBackgroundColor)
+            requestLayout()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
+
+    fun setContentLayoutOrientation(orientation: Orientation): HandyTitlebar {
+        try {
+            styleBuilder.contentLayoutOrientation =
+                if (orientation == Orientation.VERTICAL) 1 else 0
+            contentLayout.orientation = styleBuilder.contentLayoutOrientation
             requestLayout()
         } catch (e: Exception) {
             e.printStackTrace()
