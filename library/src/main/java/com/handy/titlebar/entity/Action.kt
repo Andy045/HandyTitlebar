@@ -21,64 +21,64 @@ abstract class Action {
     /**
      * 按钮图片与文字的间距
      */
-    private var actionTextMarginLeft = 0f
+    var actionTextMarginLeft = 0f
 
     /**
      * 按钮描述
      */
-    private var actionText: String = ""
+    var actionText: String = ""
     /**
      * 按钮描述文字大小
      */
-    private var actionTextSize: Float = 0f
+    var actionTextSize: Float = 0f
     /**
      * 按钮描述样式
      */
-    private var textPressType: Int = 0
+    var textPressType: Int = 0
     /**
      * 按钮描述默认文字颜色
      */
     @ColorRes
-    private var nTextColorId: Int = 0
+    var nTextColorId: Int = 0
     /**
      * 按钮描述点击时文字颜色
      */
     @ColorRes
-    private var pTextColorId: Int = 0
+    var pTextColorId: Int = 0
 
     /**
      * 按钮图片
      */
     @DrawableRes
-    private var actionImageSrc: Int = 0
+    var actionImageSrc: Int = 0
     /**
      * 按钮图片大小
      */
-    private var actionImageSize: Float = 0f
+    var actionImageSize: Float = 0f
     /**
      * 按钮图片样式
      */
-    private var imagePressType: Int = 0
+    var imagePressType: Int = 0
     /**
      * 按钮图片默认图片
      */
     @DrawableRes
-    private var nImageResId: Int = 0
+    var nImageResId: Int = 0
     /**
      * 按钮图片点击时图片
      */
     @DrawableRes
-    private var pImageResId: Int = 0
+    var pImageResId: Int = 0
     /**
      * 按钮图片默认图片颜色
      */
     @ColorRes
-    private var nImageColorId: Int = 0
+    var nImageColorId: Int = 0
     /**
      * 按钮图片点击时图片颜色
      */
     @ColorRes
-    private var pImageColorId: Int = 0
+    var pImageColorId: Int = 0
 
     //============================================================
     //  开放配置
