@@ -551,6 +551,36 @@ class HandyTitlebar @JvmOverloads constructor(
         return this
     }
 
+    fun setTitleText(title: String): HandyTitlebar {
+        mainTextView.visibility = View.GONE
+        subTextView.visibility = View.GONE
+        var index = title.indexOf("\n")
+        if (index > 0) {
+            mainTextView.visibility = View.VISIBLE
+            subTextView.visibility = View.VISIBLE
+            mainTextView.text = title.subSequence(0, index)
+            subTextView.text = title.subSequence(index + 1, title.length)
+            contentLayout.orientation = LinearLayout.VERTICAL
+
+        } else {
+            index = title.indexOf("\t")
+            if (index > 0) {
+                mainTextView.visibility = View.VISIBLE
+                subTextView.visibility = View.VISIBLE
+                mainTextView.text = title.subSequence(0, index)
+                subTextView.text = title.subSequence(index + 1, title.length)
+                contentLayout.orientation = LinearLayout.HORIZONTAL
+
+            } else {
+                mainTextView.visibility = View.VISIBLE
+                subTextView.visibility = View.GONE
+                mainTextView.text = title
+            }
+        }
+        requestLayout()
+        return this
+    }
+
     fun setContentLayoutOrientation(orientation: Orientation): HandyTitlebar {
         try {
             styleBuilder.contentLayoutOrientation =
