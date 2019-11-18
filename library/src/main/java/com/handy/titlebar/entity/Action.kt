@@ -16,86 +16,87 @@ import com.handy.titlebar.utils.HandyTitlebarUtils
  */
 abstract class Action {
     //============================================================
-    //  私有配置
+    //  布局相关
     //============================================================
     /**
      * 按钮图片与文字的间距
      */
-    var actionTextMarginLeft: Int = 0
+    private var actionTextMarginLeft: Int = 0
+    /**
+     * 按钮控件
+     */
+    private var view: View? = null
+    /**
+     * 按钮图片控件
+     */
+    private var imageView: ImageView? = null
+    /**
+     * 按钮描述控件
+     */
+    private var textView: TextView? = null
 
+    //============================================================
+    //  文字相关
+    //============================================================
     /**
      * 按钮描述
      */
-    var actionText: String = ""
+    private var actionText: String = ""
     /**
      * 按钮描述文字大小
      */
-    var actionTextSize: Float = 0f
+    private var actionTextSize: Float = 0f
     /**
      * 按钮描述样式
      */
-    var textPressType: Int = 0
+    private var textPressType: Int = 0
     /**
      * 按钮描述默认文字颜色
      */
     @ColorRes
-    var nTextColorId: Int = 0
+    private var nTextColorId: Int = 0
     /**
      * 按钮描述点击时文字颜色
      */
     @ColorRes
-    var pTextColorId: Int = 0
+    private var pTextColorId: Int = 0
 
+    //============================================================
+    //  图片相关
+    //============================================================
     /**
      * 按钮图片
      */
     @DrawableRes
-    var actionImageSrc: Int = 0
+    private var actionImageSrc: Int = 0
     /**
      * 按钮图片大小
      */
-    var actionImageSize: Float = 0f
+    private var actionImageSize: Float = 0f
     /**
      * 按钮图片样式
      */
-    var imagePressType: Int = 0
+    private var imagePressType: Int = 0
     /**
      * 按钮图片默认图片
      */
     @DrawableRes
-    var nImageResId: Int = 0
+    private var nImageResId: Int = 0
     /**
      * 按钮图片点击时图片
      */
     @DrawableRes
-    var pImageResId: Int = 0
+    private var pImageResId: Int = 0
     /**
      * 按钮图片默认图片颜色
      */
     @ColorRes
-    var nImageColorId: Int = 0
+    private var nImageColorId: Int = 0
     /**
      * 按钮图片点击时图片颜色
      */
     @ColorRes
-    var pImageColorId: Int = 0
-
-    //============================================================
-    //  开放配置
-    //============================================================
-
-    /**
-     * 按钮控件
-     */
-    var view: View? = null
-    /**
-     * 按钮图片控件
-     */
-    var imageView: ImageView? = null
-    /**
-     * 按钮描述控件
-     */
-    var textView: TextView? = null
+    private var pImageColorId: Int = 0
 
     //============================================================
     //  方法区
