@@ -248,6 +248,10 @@ abstract class Action {
         return this
     }
 
+    fun getInsideSpacing(): Float {
+        return insideSpacing
+    }
+
     /**
      * 统一配置按钮图片和文字的样式
      */
