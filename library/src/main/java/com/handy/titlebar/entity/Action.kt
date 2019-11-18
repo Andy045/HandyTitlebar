@@ -105,6 +105,26 @@ abstract class Action {
         return this
     }
 
+    fun getActionText(): String {
+        return this.actionText
+    }
+
+    fun getActionTextSize(): Float {
+        return this.actionTextSize
+    }
+
+    fun getTextPressType(): Int {
+        return this.textPressType
+    }
+
+    fun getNTextColorId(): Int {
+        return this.nTextColorId
+    }
+
+    fun getPTextColorId(): Int {
+        return this.pTextColorId
+    }
+
     //============================================================
     //  图片相关
     //============================================================
@@ -183,6 +203,34 @@ abstract class Action {
             e.printStackTrace()
         }
         return this
+    }
+
+    fun getActionImageSrc(): Int {
+        return this.actionImageSrc
+    }
+
+    fun getActionImageSize(): Float {
+        return this.actionImageSize
+    }
+
+    fun getImagePressType(): Int {
+        return this.imagePressType
+    }
+
+    fun getNImageResId(): Int {
+        return this.nImageResId
+    }
+
+    fun getPImageResId(): Int {
+        return this.pImageResId
+    }
+
+    fun getNImageColorId(): Int {
+        return this.nImageColorId
+    }
+
+    fun getPImageColorId(): Int {
+        return this.pImageColorId
     }
 
     //============================================================
