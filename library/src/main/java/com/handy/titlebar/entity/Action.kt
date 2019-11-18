@@ -1,9 +1,11 @@
 package com.handy.titlebar.entity
 
+import android.content.res.Resources
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorRes
+import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import com.handy.titlebar.utils.HandyTitlebarUtils
 
@@ -21,19 +23,19 @@ abstract class Action {
     /**
      * 按钮图片与文字的间距
      */
-    private var actionTextMarginLeft: Int = 0
+    private var insideSpacing: Float = 0f
     /**
      * 按钮控件
      */
-    private var view: View? = null
+    var view: View? = null
     /**
      * 按钮图片控件
      */
-    private var imageView: ImageView? = null
+    var imageView: ImageView? = null
     /**
      * 按钮描述控件
      */
-    private var textView: TextView? = null
+    var textView: TextView? = null
 
     //============================================================
     //  文字相关
@@ -60,6 +62,48 @@ abstract class Action {
      */
     @ColorRes
     private var pTextColorId: Int = 0
+
+    /**
+     * 设置描述内容
+     */
+    fun setText(text: String): Action {
+        this.textPressType = 0
+        this.actionText = text
+        return this
+    }
+
+    /**
+     * 设置描述内容和默认颜色
+     */
+    fun setText(text: String, @ColorRes nColorId: Int): Action {
+        this.textPressType = 1
+        this.actionText = text
+        this.nTextColorId = nColorId
+        return this
+    }
+
+    /**
+     * 设置描述内容和点击效果的颜色（默认颜色，点击时颜色）
+     */
+    fun setText(text: String, @ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
+        this.textPressType = 2
+        this.actionText = text
+        this.nTextColorId = nColorId
+        this.pTextColorId = pColorId
+        return this
+    }
+
+    /**
+     * 设置描述字体大小
+     */
+    fun setTextSize(resources: Resources, @DimenRes resId: Int): Action {
+        try {
+            this.actionTextSize = HandyTitlebarUtils.spTopx(resources.getDimension(resId))
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return this
+    }
 
     //============================================================
     //  图片相关
@@ -98,44 +142,18 @@ abstract class Action {
     @ColorRes
     private var pImageColorId: Int = 0
 
-    //============================================================
-    //  方法区
-    //============================================================
-
-    fun setText(text: String): Action {
-        this.textPressType = 0
-        this.actionText = text
-        return this
-    }
-
-    fun setText(text: String, @ColorRes nColorId: Int): Action {
-        this.textPressType = 1
-        this.actionText = text
-        this.nTextColorId = nColorId
-        return this
-    }
-
-    fun setText(text: String, @ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
-        this.textPressType = 2
-        this.actionText = text
-        this.nTextColorId = nColorId
-        this.pTextColorId = pColorId
-        return this
-    }
-
-    fun setTextSize(spSize: Float): Action {
-        if (spSize > 0) {
-            this.actionTextSize = HandyTitlebarUtils.spTopx(spSize)
-        }
-        return this
-    }
-
+    /**
+     * 设置图片
+     */
     fun setImageSrc(@DrawableRes imageResId: Int): Action {
         this.imagePressType = 0
         this.actionImageSrc = imageResId
         return this
     }
 
+    /**
+     * 设置图片和默认颜色
+     */
     fun setImageSrc(@DrawableRes nImageResId: Int, @DrawableRes pImageResId: Int): Action {
         this.imagePressType = 1
         this.actionImageSrc = nImageResId
@@ -144,6 +162,9 @@ abstract class Action {
         return this
     }
 
+    /**
+     * 设置图片和点击效果的颜色（默认颜色，点击时颜色）
+     */
     fun setImageSrc(@DrawableRes imageResId: Int, @ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
         this.imagePressType = 2
         this.actionImageSrc = imageResId
@@ -152,16 +173,29 @@ abstract class Action {
         return this
     }
 
-    fun setImageSize(dpSize: Float): Action {
-        if (dpSize >= 0) {
-            this.actionImageSize = HandyTitlebarUtils.dpTopx(dpSize)
+    /**
+     * 设置图片大小
+     */
+    fun setImageSize(resources: Resources, @DimenRes resId: Int): Action {
+        try {
+            this.actionImageSize = HandyTitlebarUtils.dpTopx(resources.getDimension(resId))
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
         return this
     }
 
-    fun setTextMarginLeft(dpSize: Float): Action {
-        if (dpSize >= 0) {
-            this.actionTextMarginLeft = HandyTitlebarUtils.dpTopx(dpSize).toInt()
+    //============================================================
+    //  其他方法
+    //============================================================
+    /**
+     * 设置按钮内部文字和图片的距离
+     */
+    fun setInsideSpacing(resources: Resources, @DimenRes resId: Int): Action {
+        try {
+            this.insideSpacing = HandyTitlebarUtils.dpTopx(resources.getDimension(resId))
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
         return this
     }
