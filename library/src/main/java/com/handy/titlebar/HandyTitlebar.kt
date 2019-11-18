@@ -13,11 +13,14 @@ import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
+import com.handy.titlebar.entity.Action
 import com.handy.titlebar.entity.StyleBuilder
 import com.handy.titlebar.utils.HandyTitlebarUtils
 import com.handy.titlebar.widget.MarqueeTextView
@@ -609,5 +612,165 @@ class HandyTitlebar @JvmOverloads constructor(
             e.printStackTrace()
         }
         return this
+    }
+
+    fun addLeftAction(action: Action): HandyTitlebar {
+        return addLeftAction(action, leftActionsLayout.childCount)
+    }
+
+    fun addLeftAction(action: Action, index: Int): HandyTitlebar {
+        val params = LinearLayout.LayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.MATCH_PARENT
+        )
+        leftActionsLayout.addView(inflateAction(action), index, params)
+        return this
+    }
+
+    fun addRightAction(action: Action): HandyTitlebar {
+        return addRightAction(action, rightActionsLayout.childCount)
+    }
+
+    fun addRightAction(action: Action, index: Int): HandyTitlebar {
+        val params = LinearLayout.LayoutParams(
+            LayoutParams.WRAP_CONTENT,
+            LayoutParams.MATCH_PARENT
+        )
+        rightActionsLayout.addView(inflateAction(action), index, params)
+        return this
+    }
+
+    fun removeLeftActions() {
+        leftActionsLayout.removeAllViews()
+    }
+
+    fun removeLeftAction(index: Int) {//
+        leftActionsLayout.removeViewAt(index)
+    }
+
+    fun removeRightActions() {
+        rightActionsLayout.removeAllViews()
+    }
+
+    fun removeRightAction(index: Int) {
+        rightActionsLayout.removeViewAt(index)
+    }
+
+    fun removeAllActions() {
+        leftActionsLayout.removeAllViews()
+        rightActionsLayout.removeAllViews()
+    }
+
+    fun inflateAction(action: Action): View {
+        val view = LinearLayout(context)
+        view.gravity = Gravity.CENTER_VERTICAL
+        view.orientation = LinearLayout.HORIZONTAL
+        view.setPadding(
+            styleBuilder.actionViewPadding.toInt(), 0,
+            styleBuilder.actionViewPadding.toInt(), 0
+        )
+        view.tag = action
+        view.setOnClickListener { v ->
+            val tag = v.tag
+            if (tag is Action) {
+                tag.onClick()
+            }
+        }
+
+        if (action.actionImageSrc != 0) {
+            val img = ImageView(context)
+            img.layoutParams = LayoutParams(
+                if (action.actionImageSize == 0f) styleBuilder.actionImageSize.toInt() else action.actionImageSize.toInt(),
+                if (action.actionImageSize == 0f) styleBuilder.actionImageSize.toInt() else action.actionImageSize.toInt()
+            )
+
+            if (action.imagePressType == 0) {
+                img.setImageResource(action.actionImageSrc)
+
+            } else if (action.imagePressType == 1) {
+                val stateListDrawable = HandyTitlebarUtils.getStateDrawable(
+                    context,
+                    action.nImageResId,
+                    action.pImageResId,
+                    action.pImageResId
+                )
+                img.setImageDrawable(stateListDrawable)
+
+            } else if (action.imagePressType == 2) {
+                val imageDrawable = ContextCompat.getDrawable(context, action.actionImageSrc)
+                val normalDrawable =
+                    if (action.nImageColorId == 0) imageDrawable else HandyTitlebarUtils.tintDrawable(
+                        context,
+                        action.actionImageSrc,
+                        action.nImageColorId
+                    )
+                val pressDrawable =
+                    if (action.pImageColorId == 0) imageDrawable else HandyTitlebarUtils.tintDrawable(
+                        context,
+                        action.actionImageSrc,
+                        action.pImageColorId
+                    )
+                val stateListDrawable = HandyTitlebarUtils.getStateDrawable(
+                    normalDrawable,
+                    pressDrawable,
+                    pressDrawable
+                )
+                img.setImageDrawable(stateListDrawable)
+            }
+
+            img.scaleType = ImageView.ScaleType.CENTER_INSIDE
+            img.isClickable = false
+            view.addView(img)
+            action.imageView = img
+        }
+
+        //若文字设置不为空，添加动作按钮的文字
+        if (action.actionText.isNotEmpty()) {
+            val text = TextView(context)
+            text.gravity = Gravity.CENTER
+            text.text = action.actionText
+            text.setPadding(
+                if (action.actionImageSrc != 0) if (action.actionTextMarginLeft == 0) styleBuilder.actionSpacing.toInt() else action.actionTextMarginLeft else 0,
+                0,
+                0,
+                0
+            )
+            text.setTextSize(
+                TypedValue.COMPLEX_UNIT_PX,
+                (if (action.actionTextSize == 0f) styleBuilder.actionTextSize else action.actionTextSize).toFloat()
+            )
+
+            if (action.textPressType == 0) {
+                text.setTextColor(styleBuilder.actionTextColor)
+
+            } else if (action.textPressType == 1) {
+                text.setTextColor(
+                    if (action.nTextColorId == 0) styleBuilder.actionTextColor else ContextCompat.getColor(
+                        context,
+                        action.nTextColorId
+                    )
+                )
+
+            } else if (action.textPressType == 2) {
+                val normalColor =
+                    if (action.nTextColorId == 0) styleBuilder.actionTextColor else action.nTextColorId
+                val pressColor =
+                    if (action.pTextColorId == 0) styleBuilder.actionTextColor else action.pTextColorId
+                text.setTextColor(
+                    HandyTitlebarUtils.getStateColor(
+                        context,
+                        normalColor,
+                        pressColor,
+                        pressColor
+                    )
+                )
+            }
+
+            text.isClickable = false
+            view.addView(text)
+            action.textView = text
+        }
+        action.view = view
+        return view
     }
 }

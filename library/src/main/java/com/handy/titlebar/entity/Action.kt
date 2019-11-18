@@ -21,7 +21,7 @@ abstract class Action {
     /**
      * 按钮图片与文字的间距
      */
-    var actionTextMarginLeft = 0f
+    var actionTextMarginLeft: Int = 0
 
     /**
      * 按钮描述
@@ -160,7 +160,7 @@ abstract class Action {
 
     fun setTextMarginLeft(dpSize: Float): Action {
         if (dpSize >= 0) {
-            this.actionTextMarginLeft = HandyTitlebarUtils.dpTopx(dpSize)
+            this.actionTextMarginLeft = HandyTitlebarUtils.dpTopx(dpSize).toInt()
         }
         return this
     }
