@@ -156,7 +156,7 @@ abstract class Action {
     /**
      * 设置图片和默认颜色
      */
-    fun setImageSrcD(@DrawableRes nImageResId: Int, @DrawableRes pImageResId: Int): Action {
+    fun setImageSrc(@DrawableRes nImageResId: Int, @DrawableRes pImageResId: Int): Action {
         this.imageType = 1
         this.imageSrc = nImageResId
         this.nImageResId = nImageResId
@@ -167,12 +167,11 @@ abstract class Action {
     /**
      * 设置图片和点击效果的颜色（默认颜色，点击时颜色）
      */
-    @JvmOverloads
-    fun setImageSrcC(@DrawableRes imageResId: Int, @ColorRes nColorId: Int = 0, @ColorRes pColorId: Int = 0): Action {
+    fun setImageSrc(@DrawableRes imageResId: Int, @ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
+        this.imageType = 2
         this.imageSrc = imageResId
         this.nImageColorId = nColorId
         this.pImageColorId = pColorId
-        this.imageType = if (nColorId == 0 && pColorId == 0) 0 else if (pColorId == 0) 2 else 3
         return this
     }
 
