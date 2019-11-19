@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
-import com.handy.titlebar.utils.HandyTitlebarUtils
 
 /**
  * @title: Action
@@ -80,7 +79,7 @@ abstract class Action {
      */
     fun setTextSize(resources: Resources, @DimenRes resId: Int): Action {
         try {
-            this.textSize = HandyTitlebarUtils.spTopx(resources.getDimension(resId))
+            this.textSize = resources.getDimension(resId)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -180,7 +179,7 @@ abstract class Action {
      */
     fun setImageSize(resources: Resources, @DimenRes resId: Int): Action {
         try {
-            this.imageSize = HandyTitlebarUtils.dpTopx(resources.getDimension(resId))
+            this.imageSize = resources.getDimension(resId)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -223,7 +222,7 @@ abstract class Action {
      */
     fun setInsideSpacing(resources: Resources, @DimenRes resId: Int): Action {
         try {
-            this.insideSpacing = HandyTitlebarUtils.dpTopx(resources.getDimension(resId))
+            this.insideSpacing = resources.getDimension(resId)
         } catch (e: Exception) {
             e.printStackTrace()
         }

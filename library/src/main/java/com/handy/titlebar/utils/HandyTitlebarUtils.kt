@@ -2,7 +2,6 @@ package com.handy.titlebar.utils
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.content.res.Resources
 import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -23,22 +22,6 @@ import androidx.core.content.ContextCompat
  */
 class HandyTitlebarUtils private constructor() {
     companion object {
-        /**
-         * dp转px
-         */
-        fun dpTopx(dpValue: Float): Float {
-            val scale = Resources.getSystem().displayMetrics.density
-            return dpValue * scale + 0.5f
-        }
-
-        /**
-         * sp转px
-         */
-        fun spTopx(spValue: Float): Float {
-            val fontScale = Resources.getSystem().displayMetrics.scaledDensity
-            return spValue * fontScale + 0.5f
-        }
-
         /**
          * 获取屏幕宽度
          */
