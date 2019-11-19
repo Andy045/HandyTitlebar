@@ -43,15 +43,15 @@ abstract class Action {
     /**
      * 按钮描述
      */
-    private var actionText: String = ""
+    private var text: String = ""
     /**
      * 按钮描述文字大小
      */
-    private var actionTextSize: Float = 0f
+    private var textSize: Float = 0f
     /**
      * 按钮描述样式
      */
-    private var textPressType: Int = 0
+    private var textType: Int = 0
     /**
      * 按钮描述默认文字颜色
      */
@@ -64,32 +64,14 @@ abstract class Action {
     private var pTextColorId: Int = 0
 
     /**
-     * 设置描述内容
+     * 设置描述内容和颜色（默认颜色，点击时颜色）
      */
-    fun setText(text: String): Action {
-        this.textPressType = 0
-        this.actionText = text
-        return this
-    }
-
-    /**
-     * 设置描述内容和默认颜色
-     */
-    fun setText(text: String, @ColorRes nColorId: Int): Action {
-        this.textPressType = 1
-        this.actionText = text
-        this.nTextColorId = nColorId
-        return this
-    }
-
-    /**
-     * 设置描述内容和点击效果的颜色（默认颜色，点击时颜色）
-     */
-    fun setText(text: String, @ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
-        this.textPressType = 2
-        this.actionText = text
+    @JvmOverloads
+    fun setText(text: String, @ColorRes nColorId: Int = 0, @ColorRes pColorId: Int = 0): Action {
+        this.text = text
         this.nTextColorId = nColorId
         this.pTextColorId = pColorId
+        this.textType = if (nColorId == 0 && pColorId == 0) 0 else if (pColorId == 0) 1 else 2
         return this
     }
 
@@ -98,23 +80,23 @@ abstract class Action {
      */
     fun setTextSize(resources: Resources, @DimenRes resId: Int): Action {
         try {
-            this.actionTextSize = HandyTitlebarUtils.spTopx(resources.getDimension(resId))
+            this.textSize = HandyTitlebarUtils.spTopx(resources.getDimension(resId))
         } catch (e: Exception) {
             e.printStackTrace()
         }
         return this
     }
 
-    fun getActionText(): String {
-        return this.actionText
+    fun getText(): String {
+        return this.text
     }
 
-    fun getActionTextSize(): Float {
-        return this.actionTextSize
+    fun getTextSize(): Float {
+        return this.textSize
     }
 
-    fun getTextPressType(): Int {
-        return this.textPressType
+    fun getTextType(): Int {
+        return this.textType
     }
 
     fun getNTextColorId(): Int {
@@ -132,15 +114,15 @@ abstract class Action {
      * 按钮图片
      */
     @DrawableRes
-    private var actionImageSrc: Int = 0
+    private var imageSrc: Int = 0
     /**
      * 按钮图片大小
      */
-    private var actionImageSize: Float = 0f
+    private var imageSize: Float = 0f
     /**
      * 按钮图片样式
      */
-    private var imagePressType: Int = 0
+    private var imageType: Int = 0
     /**
      * 按钮图片默认图片
      */
@@ -166,17 +148,17 @@ abstract class Action {
      * 设置图片
      */
     fun setImageSrc(@DrawableRes imageResId: Int): Action {
-        this.imagePressType = 0
-        this.actionImageSrc = imageResId
+        this.imageType = 0
+        this.imageSrc = imageResId
         return this
     }
 
     /**
      * 设置图片和默认颜色
      */
-    fun setImageSrc(@DrawableRes nImageResId: Int, @DrawableRes pImageResId: Int): Action {
-        this.imagePressType = 1
-        this.actionImageSrc = nImageResId
+    fun setImageSrcD(@DrawableRes nImageResId: Int, @DrawableRes pImageResId: Int): Action {
+        this.imageType = 1
+        this.imageSrc = nImageResId
         this.nImageResId = nImageResId
         this.pImageResId = pImageResId
         return this
@@ -185,11 +167,12 @@ abstract class Action {
     /**
      * 设置图片和点击效果的颜色（默认颜色，点击时颜色）
      */
-    fun setImageSrc(@DrawableRes imageResId: Int, @ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
-        this.imagePressType = 2
-        this.actionImageSrc = imageResId
+    @JvmOverloads
+    fun setImageSrcC(@DrawableRes imageResId: Int, @ColorRes nColorId: Int = 0, @ColorRes pColorId: Int = 0): Action {
+        this.imageSrc = imageResId
         this.nImageColorId = nColorId
         this.pImageColorId = pColorId
+        this.imageType = if (nColorId == 0 && pColorId == 0) 0 else if (pColorId == 0) 2 else 3
         return this
     }
 
@@ -198,7 +181,7 @@ abstract class Action {
      */
     fun setImageSize(resources: Resources, @DimenRes resId: Int): Action {
         try {
-            this.actionImageSize = HandyTitlebarUtils.dpTopx(resources.getDimension(resId))
+            this.imageSize = HandyTitlebarUtils.dpTopx(resources.getDimension(resId))
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -206,15 +189,15 @@ abstract class Action {
     }
 
     fun getActionImageSrc(): Int {
-        return this.actionImageSrc
+        return this.imageSrc
     }
 
     fun getActionImageSize(): Float {
-        return this.actionImageSize
+        return this.imageSize
     }
 
     fun getImagePressType(): Int {
-        return this.imagePressType
+        return this.imageType
     }
 
     fun getNImageResId(): Int {
@@ -256,13 +239,13 @@ abstract class Action {
      * 统一配置按钮图片和文字的样式
      */
     fun syncTextImage(@ColorRes nColorId: Int, @ColorRes pColorId: Int): Action {
-        if (this.actionText.isNotEmpty()) {
-            this.textPressType = 2
+        if (this.text.isNotEmpty()) {
+            this.textType = 2
             this.nTextColorId = nColorId
             this.pTextColorId = pColorId
         }
-        if (this.actionImageSrc != 0) {
-            this.imagePressType = 2
+        if (this.imageSrc != 0) {
+            this.imageType = 2
             this.nImageColorId = nColorId
             this.pImageColorId = pColorId
         }
