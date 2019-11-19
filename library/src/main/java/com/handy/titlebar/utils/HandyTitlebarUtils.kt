@@ -32,7 +32,7 @@ class HandyTitlebarUtils private constructor() {
         }
 
         /**
-         * sp 转 px
+         * sp转px
          */
         fun spTopx(spValue: Float): Float {
             val fontScale = Resources.getSystem().displayMetrics.scaledDensity
@@ -40,9 +40,7 @@ class HandyTitlebarUtils private constructor() {
         }
 
         /**
-         * Return the width of screen, in pixel.
-         *
-         * @return the width of screen, in pixel
+         * 获取屏幕宽度
          */
         fun getScreenWidth(context: Context): Int {
             val service = context.getSystemService(Context.WINDOW_SERVICE)
@@ -133,6 +131,10 @@ class HandyTitlebarUtils private constructor() {
         /**
          * 通过代码设置Selector效果
          *
+         * @param context   上下文
+         * @param idNormal  默认样式（或者图片和颜色的资源ID）
+         * @param idPressed 点击样式（或者图片和颜色的资源ID）
+         * @param idFocused 焦点样式（或者图片和颜色的资源ID）
          * @return Selector样式
          */
         fun getStateDrawable(
