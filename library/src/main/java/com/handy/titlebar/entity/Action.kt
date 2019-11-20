@@ -186,11 +186,11 @@ abstract class Action {
         return this
     }
 
-    fun getActionImageSrc(): Int {
+    fun getImageSrc(): Int {
         return this.imageSrc
     }
 
-    fun getActionImageSize(): Float {
+    fun getImageSize(): Float {
         return this.imageSize
     }
 
