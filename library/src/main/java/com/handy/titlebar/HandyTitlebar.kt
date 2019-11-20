@@ -38,6 +38,20 @@ class HandyTitlebar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ViewGroup(context, attrs, defStyleAttr) {
     //============================================================
+    //  公共配置
+    //============================================================
+
+    var statusBar: View = View(context)
+    var topLineView: View = View(context)
+    var titleBar: View = View(context)
+    var leftActionsLayout: LinearLayout = LinearLayout(context)
+    var mainTextView: MarqueeTextView = MarqueeTextView(context)
+    var subTextView: MarqueeTextView = MarqueeTextView(context)
+    var contentLayout: LinearLayout = LinearLayout(context)
+    var rightActionsLayout: LinearLayout = LinearLayout(context)
+    var bottomLineView: View = View(context)
+
+    //============================================================
     //  私有配置
     //============================================================
 
@@ -49,16 +63,6 @@ class HandyTitlebar @JvmOverloads constructor(
     private var parentMarginLeft: Int = 0
     private var parentMarginRight: Int = 0
     private var parentMarginBottom: Int = 0
-
-    private var statusBar: View = View(context)
-    private var topLineView: View = View(context)
-    private var titleBar: View = View(context)
-    private var leftActionsLayout: LinearLayout = LinearLayout(context)
-    private var mainTextView: MarqueeTextView = MarqueeTextView(context)
-    private var subTextView: MarqueeTextView = MarqueeTextView(context)
-    private var contentLayout: LinearLayout = LinearLayout(context)
-    private var rightActionsLayout: LinearLayout = LinearLayout(context)
-    private var bottomLineView: View = View(context)
 
     private var styleBuilder: StyleBuilder = StyleBuilder(context, attrs, resources)
 
@@ -109,7 +113,6 @@ class HandyTitlebar @JvmOverloads constructor(
         subTextView.ellipsize = TextUtils.TruncateAt.MARQUEE
         subTextView.visibility =
             if (styleBuilder.subText.isNullOrEmpty()) View.GONE else View.VISIBLE
-
         // 标题文本容器
         contentLayout.orientation = styleBuilder.contentLayoutOrientation
         contentLayout.gravity = Gravity.CENTER
@@ -132,7 +135,6 @@ class HandyTitlebar @JvmOverloads constructor(
                 LayoutParams.WRAP_CONTENT
             )
         )
-
         if (subTextView.visibility == View.GONE) {
             mainTextView.setPadding(0, 0, 0, 0)
             subTextView.setPadding(0, 0, 0, 0)
