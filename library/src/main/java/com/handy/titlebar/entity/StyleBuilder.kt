@@ -107,7 +107,7 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
         this.topLineHeight =
             typedArray.getDimension(
                 R.styleable.HandyTitlebarStyleable_handy_topLineHeight,
-                resources.getDimension(R.dimen.hdb_dp1)
+                resources.getDimension(R.dimen.hdb_dp0)
             )
         this.topLineColor = typedArray.getColor(
             R.styleable.HandyTitlebarStyleable_handy_topLineColor,
