@@ -12,7 +12,34 @@
         android:layout_height="wrap_content"
         app:handy_contentLayoutOrientation="horizontal"
         app:handy_isShowCustomStatusbar="true"
-        app:handy_mainText="主标题"
-        app:handy_subText="副标题" />
+        app:handy_mainText="标题栏DEMO" />
+
+    <Button
+        android:id="@+id/btnSetting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/hdb_dp8"
+        android:layout_marginTop="@dimen/hdb_dp8"
+        android:layout_marginRight="@dimen/hdb_dp8"
+        android:background="@color/google_lightbluea700"
+        android:minWidth="@dimen/hdb_dp0"
+        android:minHeight="@dimen/hdb_dp0"
+        android:padding="@dimen/hdb_dp8"
+        android:text="动态效果"
+        android:textColor="@color/web_white" />
+
+    <Button
+        android:id="@+id/btnDemo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/hdb_dp8"
+        android:layout_marginTop="@dimen/hdb_dp8"
+        android:layout_marginRight="@dimen/hdb_dp8"
+        android:background="@color/google_lightbluea700"
+        android:minWidth="@dimen/hdb_dp0"
+        android:minHeight="@dimen/hdb_dp0"
+        android:padding="@dimen/hdb_dp8"
+        android:text="常见样例"
+        android:textColor="@color/web_white" />
 
 </LinearLayout>
