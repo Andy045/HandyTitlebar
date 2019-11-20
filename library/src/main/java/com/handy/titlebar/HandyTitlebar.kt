@@ -707,38 +707,38 @@ class HandyTitlebar @JvmOverloads constructor(
             }
         }
 
-        if (action.actionImageSrc != 0) {
+        if (action.getImageSrc() != 0) {
             val img = ImageView(context)
             img.layoutParams = LayoutParams(
-                if (action.actionImageSize == 0f) styleBuilder.actionImageSize.toInt() else action.actionImageSize.toInt(),
-                if (action.actionImageSize == 0f) styleBuilder.actionImageSize.toInt() else action.actionImageSize.toInt()
+                if (action.getImageSize() == 0f) styleBuilder.actionImageSize.toInt() else action.getImageSize().toInt(),
+                if (action.getImageSize() == 0f) styleBuilder.actionImageSize.toInt() else action.getImageSize().toInt()
             )
 
-            if (action.imagePressType == 0) {
-                img.setImageResource(action.actionImageSrc)
+            if (action.getImagePressType() == 0) {
+                img.setImageResource(action.getImageSrc())
 
-            } else if (action.imagePressType == 1) {
+            } else if (action.getImagePressType() == 1) {
                 val stateListDrawable = HandyTitlebarUtils.getStateDrawable(
                     context,
-                    action.nImageResId,
-                    action.pImageResId,
-                    action.pImageResId
+                    action.getNImageResId(),
+                    action.getPImageResId(),
+                    action.getPImageResId()
                 )
                 img.setImageDrawable(stateListDrawable)
 
-            } else if (action.imagePressType == 2) {
-                val imageDrawable = ContextCompat.getDrawable(context, action.actionImageSrc)
+            } else if (action.getImagePressType() == 2) {
+                val imageDrawable = ContextCompat.getDrawable(context, action.getImageSrc())
                 val normalDrawable =
-                    if (action.nImageColorId == 0) imageDrawable else HandyTitlebarUtils.tintDrawable(
+                    if (action.getNImageColorId() == 0) imageDrawable else HandyTitlebarUtils.tintDrawable(
                         context,
-                        action.actionImageSrc,
-                        action.nImageColorId
+                        action.getImageSrc(),
+                        action.getNImageColorId()
                     )
                 val pressDrawable =
-                    if (action.pImageColorId == 0) imageDrawable else HandyTitlebarUtils.tintDrawable(
+                    if (action.getPImageColorId() == 0) imageDrawable else HandyTitlebarUtils.tintDrawable(
                         context,
-                        action.actionImageSrc,
-                        action.pImageColorId
+                        action.getImageSrc(),
+                        action.getPImageColorId()
                     )
                 val stateListDrawable = HandyTitlebarUtils.getStateDrawable(
                     normalDrawable,
@@ -755,37 +755,37 @@ class HandyTitlebar @JvmOverloads constructor(
         }
 
         //若文字设置不为空，添加动作按钮的文字
-        if (action.actionText.isNotEmpty()) {
+        if (action.getText().isNotEmpty()) {
             val text = TextView(context)
             text.gravity = Gravity.CENTER
-            text.text = action.actionText
+            text.text = action.getText()
             text.setPadding(
-                if (action.actionImageSrc != 0) if (action.actionTextMarginLeft == 0) styleBuilder.actionSpacing.toInt() else action.actionTextMarginLeft else 0,
+                if (action.getImageSrc() != 0) if (action.getInsideSpacing() == 0f) styleBuilder.actionSpacing.toInt() else action.getInsideSpacing().toInt() else 0,
                 0,
                 0,
                 0
             )
             text.setTextSize(
                 TypedValue.COMPLEX_UNIT_PX,
-                (if (action.actionTextSize == 0f) styleBuilder.actionTextSize else action.actionTextSize).toFloat()
+                (if (action.getTextSize() == 0f) styleBuilder.actionTextSize else action.getTextSize()).toFloat()
             )
 
-            if (action.textPressType == 0) {
+            if (action.getTextType() == 0) {
                 text.setTextColor(styleBuilder.actionTextColor)
 
-            } else if (action.textPressType == 1) {
+            } else if (action.getTextType() == 1) {
                 text.setTextColor(
-                    if (action.nTextColorId == 0) styleBuilder.actionTextColor else ContextCompat.getColor(
+                    if (action.getNTextColorId() == 0) styleBuilder.actionTextColor else ContextCompat.getColor(
                         context,
-                        action.nTextColorId
+                        action.getNTextColorId()
                     )
                 )
 
-            } else if (action.textPressType == 2) {
+            } else if (action.getTextType() == 2) {
                 val normalColor =
-                    if (action.nTextColorId == 0) styleBuilder.actionTextColor else action.nTextColorId
+                    if (action.getNTextColorId() == 0) styleBuilder.actionTextColor else action.getNTextColorId()
                 val pressColor =
-                    if (action.pTextColorId == 0) styleBuilder.actionTextColor else action.pTextColorId
+                    if (action.getPTextColorId() == 0) styleBuilder.actionTextColor else action.getPTextColorId()
                 text.setTextColor(
                     HandyTitlebarUtils.getStateColor(
                         context,
