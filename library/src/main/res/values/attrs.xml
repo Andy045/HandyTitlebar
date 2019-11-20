@@ -2,52 +2,46 @@
 <resources>
     <declare-styleable name="HandyTitlebarStyleable">
         <!-- 状态栏 -->
-        <attr name="handy_isShowCustomStatusbar" format="boolean" />
-        <attr name="handy_statusbarHeight" format="dimension" />
-        <attr name="handy_statusbarBackgroundColor" format="color" />
-
+        <attr name="hd_isTranslucentStatus" format="boolean" />
+        <attr name="hd_statusbarHeight" format="dimension" />
+        <attr name="hd_statusbarBackgroundColor" format="color" />
         <!-- 顶部分割线 -->
-        <attr name="handy_topLineHeight" format="dimension" />
-        <attr name="handy_topLineColor" format="color" />
-
+        <attr name="hd_topLineHeight" format="dimension" />
+        <attr name="hd_topLineColor" format="color" />
         <!-- 标题栏 -->
-        <attr name="handy_titlebarMargin" format="dimension" />
-        <attr name="handy_titlebarMarginTop" format="dimension" />
-        <attr name="handy_titlebarMarginLeft" format="dimension" />
-        <attr name="handy_titlebarMarginRight" format="dimension" />
-        <attr name="handy_titlebarMarginBottom" format="dimension" />
-        <attr name="handy_titlebarHeight" format="dimension" />
-        <attr name="handy_titlebarBackground" format="reference|color" />
-
+        <attr name="hd_titlebarMargin" format="dimension" />
+        <attr name="hd_titlebarMarginTop" format="dimension" />
+        <attr name="hd_titlebarMarginLeft" format="dimension" />
+        <attr name="hd_titlebarMarginRight" format="dimension" />
+        <attr name="hd_titlebarMarginBottom" format="dimension" />
+        <attr name="hd_titlebarHeight" format="dimension" />
+        <attr name="hd_titlebarBackground" format="reference|color" />
         <!-- 标题容器 -->
-        <attr name="handy_contentLayoutPadding" format="dimension" />
-        <attr name="handy_contentLayoutOrientation">
+        <attr name="hd_contentLayoutPadding" format="dimension" />
+        <attr name="hd_contentLayoutOrientation">
             <enum name="vertical" value="1" />
             <enum name="horizontal" value="0" />
         </attr>
-        <attr name="handy_textMarginH" format="dimension" />
-        <attr name="handy_textMarginV" format="dimension" />
-
+        <attr name="hd_textMarginH" format="dimension" />
+        <attr name="hd_textMarginV" format="dimension" />
         <!-- 标题内容 -->
-        <attr name="handy_mainText" format="string" />
-        <attr name="handy_mainTextSize" format="dimension" />
-        <attr name="handy_mainTextColor" format="color" />
-        <attr name="handy_mainTextBackgroundColor" format="color" />
-        <attr name="handy_subText" format="string" />
-        <attr name="handy_subTextSize" format="dimension" />
-        <attr name="handy_subTextColor" format="color" />
-        <attr name="handy_subTextBackgroundColor" format="color" />
-
+        <attr name="hd_mainText" format="string" />
+        <attr name="hd_mainTextSize" format="dimension" />
+        <attr name="hd_mainTextColor" format="color" />
+        <attr name="hd_mainTextBackgroundColor" format="color" />
+        <attr name="hd_subText" format="string" />
+        <attr name="hd_subTextSize" format="dimension" />
+        <attr name="hd_subTextColor" format="color" />
+        <attr name="hd_subTextBackgroundColor" format="color" />
         <!-- 底部分割线 -->
-        <attr name="handy_bottomLineHeight" format="dimension" />
-        <attr name="handy_bottomLineColor" format="color" />
-
+        <attr name="hd_bottomLineHeight" format="dimension" />
+        <attr name="hd_bottomLineColor" format="color" />
         <!-- 按钮 -->
-        <attr name="handy_actionParentMargin" format="dimension" />
-        <attr name="handy_actionViewPadding" format="dimension" />
-        <attr name="handy_actionSpacing" format="dimension" />
-        <attr name="handy_actionTextSize" format="dimension" />
-        <attr name="handy_actionTextColor" format="color" />
-        <attr name="handy_actionImageSize" format="dimension" />
+        <attr name="hd_actionParentMargin" format="dimension" />
+        <attr name="hd_actionViewPadding" format="dimension" />
+        <attr name="hd_actionSpacing" format="dimension" />
+        <attr name="hd_actionTextSize" format="dimension" />
+        <attr name="hd_actionTextColor" format="color" />
+        <attr name="hd_actionImageSize" format="dimension" />
     </declare-styleable>
 </resources>
