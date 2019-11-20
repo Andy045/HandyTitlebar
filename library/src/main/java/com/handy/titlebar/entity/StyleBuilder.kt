@@ -91,56 +91,56 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
 
         // 状态栏
         this.isShowCustomStatusbar = typedArray.getBoolean(
-            R.styleable.HandyTitlebarStyleable_handy_isShowCustomStatusbar,
+            R.styleable.HandyTitlebarStyleable_hd_isTranslucentStatus,
             false
         )
         this.statusbarHeight = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_statusbarHeight,
+            R.styleable.HandyTitlebarStyleable_hd_statusbarHeight,
             if (isShowCustomStatusbar) getStatusBarHeight(context) else 0f
         )
         this.statusbarBackgroundColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_statusbarBackgroundColor,
+            R.styleable.HandyTitlebarStyleable_hd_statusbarBackgroundColor,
             ContextCompat.getColor(context, R.color.google_lightbluea700)
         )
 
         // 顶部分割线
         this.topLineHeight =
             typedArray.getDimension(
-                R.styleable.HandyTitlebarStyleable_handy_topLineHeight,
-                resources.getDimension(R.dimen.hdb_dp0)
+                R.styleable.HandyTitlebarStyleable_hd_topLineHeight,
+                resources.getDimension(R.dimen.hd_dp0)
             )
         this.topLineColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_topLineColor,
+            R.styleable.HandyTitlebarStyleable_hd_topLineColor,
             ContextCompat.getColor(context, R.color.google_grey500)
         )
 
         // 标题栏
         this.titlebarMargin = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_titlebarMargin,
-            resources.getDimension(R.dimen.hdb_dp0)
+            R.styleable.HandyTitlebarStyleable_hd_titlebarMargin,
+            resources.getDimension(R.dimen.hd_dp0)
         )
         this.titlebarMarginTop = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_titlebarMarginTop,
-            resources.getDimension(R.dimen.hdb_dp0)
+            R.styleable.HandyTitlebarStyleable_hd_titlebarMarginTop,
+            resources.getDimension(R.dimen.hd_dp0)
         )
         this.titlebarMarginLeft = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_titlebarMarginLeft,
-            resources.getDimension(R.dimen.hdb_dp0)
+            R.styleable.HandyTitlebarStyleable_hd_titlebarMarginLeft,
+            resources.getDimension(R.dimen.hd_dp0)
         )
         this.titlebarMarginRight = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_titlebarMarginRight,
-            resources.getDimension(R.dimen.hdb_dp0)
+            R.styleable.HandyTitlebarStyleable_hd_titlebarMarginRight,
+            resources.getDimension(R.dimen.hd_dp0)
         )
         this.titlebarMarginBottom = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_titlebarMarginBottom,
-            resources.getDimension(R.dimen.hdb_dp0)
+            R.styleable.HandyTitlebarStyleable_hd_titlebarMarginBottom,
+            resources.getDimension(R.dimen.hd_dp0)
         )
         this.titlebarHeight = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_titlebarHeight,
-            resources.getDimension(R.dimen.hdb_dp48)
+            R.styleable.HandyTitlebarStyleable_hd_titlebarHeight,
+            resources.getDimension(R.dimen.hd_dp48)
         )
         this.titlebarBackground =
-            typedArray.getDrawable(R.styleable.HandyTitlebarStyleable_handy_titlebarBackground)
+            typedArray.getDrawable(R.styleable.HandyTitlebarStyleable_hd_titlebarBackground)
         if (this.titlebarBackground == null) {
             this.titlebarBackground = ColorDrawable(
                 ContextCompat.getColor(context, R.color.google_lightbluea700)
@@ -148,83 +148,83 @@ class StyleBuilder constructor(context: Context, attrs: AttributeSet?, resources
         }
 
         this.contentLayoutPadding = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_contentLayoutPadding,
-            resources.getDimension(R.dimen.hdb_dp8)
+            R.styleable.HandyTitlebarStyleable_hd_contentLayoutPadding,
+            resources.getDimension(R.dimen.hd_dp8)
         )
         this.contentLayoutOrientation = typedArray.getInt(
-            R.styleable.HandyTitlebarStyleable_handy_contentLayoutOrientation,
+            R.styleable.HandyTitlebarStyleable_hd_contentLayoutOrientation,
             1
         )
         this.textMarginH = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_textMarginH,
-            resources.getDimension(R.dimen.hdb_dp2)
+            R.styleable.HandyTitlebarStyleable_hd_textMarginH,
+            resources.getDimension(R.dimen.hd_dp2)
         )
         this.textMarginV = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_textMarginV,
-            resources.getDimension(R.dimen.hdb_dp1)
+            R.styleable.HandyTitlebarStyleable_hd_textMarginV,
+            resources.getDimension(R.dimen.hd_dp1)
         )
 
-        this.mainText = typedArray.getString(R.styleable.HandyTitlebarStyleable_handy_mainText)
+        this.mainText = typedArray.getString(R.styleable.HandyTitlebarStyleable_hd_mainText)
         this.mainTextSize = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_mainTextSize,
-            resources.getDimension(R.dimen.hdb_sp16)
+            R.styleable.HandyTitlebarStyleable_hd_mainTextSize,
+            resources.getDimension(R.dimen.hd_sp16)
         )
         this.mainTextColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_mainTextColor,
+            R.styleable.HandyTitlebarStyleable_hd_mainTextColor,
             ContextCompat.getColor(context, R.color.web_white)
         )
         this.mainTextBackgroundColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_mainTextBackgroundColor,
+            R.styleable.HandyTitlebarStyleable_hd_mainTextBackgroundColor,
             ContextCompat.getColor(context, R.color.web_transparent)
         )
-        this.subText = typedArray.getString(R.styleable.HandyTitlebarStyleable_handy_subText)
+        this.subText = typedArray.getString(R.styleable.HandyTitlebarStyleable_hd_subText)
         this.subTextSize = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_subTextSize,
-            resources.getDimension(R.dimen.hdb_sp12)
+            R.styleable.HandyTitlebarStyleable_hd_subTextSize,
+            resources.getDimension(R.dimen.hd_sp12)
         )
         this.subTextColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_subTextColor,
+            R.styleable.HandyTitlebarStyleable_hd_subTextColor,
             ContextCompat.getColor(context, R.color.web_white)
         )
         this.subTextBackgroundColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_subTextBackgroundColor,
+            R.styleable.HandyTitlebarStyleable_hd_subTextBackgroundColor,
             ContextCompat.getColor(context, R.color.web_transparent)
         )
 
         // 底部分割线
         this.bottomLineHeight = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_bottomLineHeight,
-            resources.getDimension(R.dimen.hdb_dp1)
+            R.styleable.HandyTitlebarStyleable_hd_bottomLineHeight,
+            resources.getDimension(R.dimen.hd_dp1)
         )
         this.bottomLineColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_bottomLineColor,
+            R.styleable.HandyTitlebarStyleable_hd_bottomLineColor,
             ContextCompat.getColor(context, R.color.google_grey500)
         )
 
         // 按钮
         this.actionParentMargin = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_actionParentMargin,
-            resources.getDimension(R.dimen.hdb_dp9)
+            R.styleable.HandyTitlebarStyleable_hd_actionParentMargin,
+            resources.getDimension(R.dimen.hd_dp9)
         )
         this.actionViewPadding = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_actionViewPadding,
-            resources.getDimension(R.dimen.hdb_dp4)
+            R.styleable.HandyTitlebarStyleable_hd_actionViewPadding,
+            resources.getDimension(R.dimen.hd_dp4)
         )
         this.actionSpacing = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_actionSpacing,
-            resources.getDimension(R.dimen.hdb_dp4)
+            R.styleable.HandyTitlebarStyleable_hd_actionSpacing,
+            resources.getDimension(R.dimen.hd_dp4)
         )
         this.actionTextSize = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_actionTextSize,
-            resources.getDimension(R.dimen.hdb_sp12)
+            R.styleable.HandyTitlebarStyleable_hd_actionTextSize,
+            resources.getDimension(R.dimen.hd_sp12)
         )
         this.actionTextColor = typedArray.getColor(
-            R.styleable.HandyTitlebarStyleable_handy_actionTextColor,
+            R.styleable.HandyTitlebarStyleable_hd_actionTextColor,
             ContextCompat.getColor(context, R.color.web_white)
         )
         this.actionImageSize = typedArray.getDimension(
-            R.styleable.HandyTitlebarStyleable_handy_actionImageSize,
-            resources.getDimension(R.dimen.hdb_dp16)
+            R.styleable.HandyTitlebarStyleable_hd_actionImageSize,
+            resources.getDimension(R.dimen.hd_dp16)
         )
 
         typedArray.recycle()
