@@ -3,43 +3,61 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#eeeeee"
+    android:background="@color/google_grey200"
     android:orientation="vertical">
 
     <com.handy.titlebar.HandyTitlebar
-        android:id="@+id/titlebar"
-        android:layout_width="wrap_content"
+        android:id="@+id/titlebar1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hd_contentLayoutOrientation="horizontal"
+        app:hd_bottomLineHeight="@dimen/hd_dp0"
         app:hd_isTranslucentStatus="true"
-        app:hd_mainText="标题栏DEMO" />
+        app:hd_mainText="主标题"
+        app:hd_subText="副标题" />
 
-    <Button
-        android:id="@+id/btnSetting"
+    <com.handy.titlebar.HandyTitlebar
+        android:id="@+id/titlebar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/hd_dp8"
-        android:layout_marginTop="@dimen/hd_dp8"
-        android:layout_marginRight="@dimen/hd_dp8"
-        android:background="@color/google_lightbluea700"
-        android:minWidth="@dimen/hd_dp0"
-        android:minHeight="@dimen/hd_dp0"
-        android:padding="@dimen/hd_dp8"
-        android:text="动态效果"
-        android:textColor="@color/web_white" />
+        android:layout_marginTop="@dimen/google_spacing_medium"
+        app:hd_isTranslucentStatus="false"
+        app:hd_mainText="主标题" />
 
-    <Button
-        android:id="@+id/btnDemo"
+    <com.handy.titlebar.HandyTitlebar
+        android:id="@+id/titlebar3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/hd_dp8"
-        android:layout_marginTop="@dimen/hd_dp8"
-        android:layout_marginRight="@dimen/hd_dp8"
-        android:background="@color/google_lightbluea700"
-        android:minWidth="@dimen/hd_dp0"
-        android:minHeight="@dimen/hd_dp0"
-        android:padding="@dimen/hd_dp8"
-        android:text="常见样例"
-        android:textColor="@color/web_white" />
+        android:layout_marginTop="@dimen/google_spacing_medium"
+        app:hd_isTranslucentStatus="false"
+        app:hd_mainText="主标题" />
 
+    <com.handy.titlebar.HandyTitlebar
+        android:id="@+id/titlebar4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/google_spacing_medium"
+        app:hd_isTranslucentStatus="false"
+        app:hd_mainText="主标题" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/hd_dp200"
+        android:layout_marginTop="@dimen/google_spacing_medium"
+        android:background="@drawable/demo_titlebar1_bg">
+
+        <com.handy.titlebar.HandyTitlebar
+            android:id="@+id/titlebar5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hd_bottomLineHeight="@dimen/hd_dp0"
+            app:hd_isTranslucentStatus="true"
+            app:hd_mainText="搜地点、查公交、找路线"
+            app:hd_mainTextColor="@color/google_grey700"
+            app:hd_mainTextSize="@dimen/hd_sp12"
+            app:hd_statusbarBackgroundColor="@color/web_transparent"
+            app:hd_titlebarBackground="@drawable/sp_demo_titlebar1"
+            app:hd_titlebarHeight="@dimen/hd_dp38"
+            app:hd_titlebarMarginLeft="@dimen/hd_dp8"
+            app:hd_titlebarMarginRight="@dimen/hd_dp8" />
+    </RelativeLayout>
 </LinearLayout>
