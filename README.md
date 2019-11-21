@@ -80,48 +80,7 @@
 
 # 公开方法
 
-属性描述|设置方法名
----|---
-Titlebar|
-状态栏高度|setStatusbarHeight
-状态栏背景颜色|setStatusbarBackgroundColor
-顶部分割线高度|setTopLineHeight
-顶部分割线背景颜色|setTopLineColor
-标题栏外边距|setTitlebarMargin
-标题栏外边距-上|setTitlebarMarginTop
-标题栏外边距-左|setTitlebarMarginLeft
-标题栏外边距-右|setTitlebarMarginRight
-标题栏外边距-下|setTitlebarMarginBottom
-标题栏高度|setTitlebarHeight
-标题栏背景|setTitlebarBackground
-主标题字体大小|setMainTextSize
-主标题字体颜色|setMainTextColor
-主标题背景颜色|setMainTextBackgroundColor
-副标题字体大小|setSubTextSize
-副标题字体颜色|setSubTextColor
-副标题背景颜色|setSubTextBackgroundColor
-标题内容|setTitleText
-文本容器布局方向|setContentLayoutOrientation
-底部分割线高度|setBottomLineHeight
-底部分割线背景颜色|setBottomLineColor
-按钮文字字体大小|setActionTextSize
-按钮文字颜色|setActionTextColor
-按钮图片大小|setActionImageSize
-添加一个左侧按钮|addLeftAction
-添加一个右侧按钮|addRightAction
-移除所有的左侧按钮|removeLeftActions
-移除指定的左侧按钮|removeLeftAction
-移除所有的右侧按钮|removeRightActions
-移除指定的右侧按钮|removeRightAction
-移除所有按钮|removeAllActions
-|
-Action|
-设置按钮文字|setText
-设置按钮文字字体大小|setTextSize
-设置按钮图片|setImageSrc
-设置按钮图片大小|setImageSize
-设置按钮图片与文字的间距|setInsideSpacing
-统一设置按钮图片和文字的点击效果（颜色变化）|syncTextImage
+更多方法请查看：[HandyTitlebar - 标题栏](https://handy045.com/Android/Widget/HandyWidget/HandyTitlebar/)
 
 # 接入方式
 
