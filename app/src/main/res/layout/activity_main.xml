@@ -10,9 +10,9 @@
         android:id="@+id/titlebar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:handy_contentLayoutOrientation="horizontal"
-        app:handy_isShowCustomStatusbar="true"
-        app:handy_mainText="标题栏DEMO" />
+        app:hd_contentLayoutOrientation="horizontal"
+        app:hd_isTranslucentStatus="true"
+        app:hd_mainText="标题栏DEMO" />
 
     <Button
         android:id="@+id/btnSetting"
